@@ -1,0 +1,72 @@
+---
+import type { ContactLink, MenuItem } from '../data/site';
+
+interface Props {
+  logoSrc: string;
+  menu: MenuItem[];
+  address: string;
+  hours: string;
+  phoneHref: string;
+  phoneDisplay: string;
+  messengers: ContactLink[];
+}
+
+const { logoSrc, menu, address, hours, phoneHref, phoneDisplay, messengers } = Astro.props;
+---
+
+<header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white backdrop-blur">
+  <div class="site-container flex items-center justify-between gap-4 py-4">
+    <a href="#" class="shrink-0">
+      <img src={logoSrc} alt="Логотип" class="w-auto" loading="eager" style="height: 108px" />
+    </a>
+
+    <button
+      id="menu-toggle"
+      class="rounded-lg border border-slate-300 p-2 lg:hidden"
+      aria-label="Открыть меню"
+      aria-expanded="false"
+    >
+      <span class="block h-0.5 w-5 bg-slate-700"></span>
+      <span class="mt-1.5 block h-0.5 w-5 bg-slate-700"></span>
+      <span class="mt-1.5 block h-0.5 w-5 bg-slate-700"></span>
+    </button>
+
+    <nav class="hidden flex-1 lg:block">
+      <ul class="flex flex-wrap items-center justify-center gap-5 text-sm font-semibold text-slate-700">
+        {menu.map((item) => (
+          <li><a href={item.href} class="transition hover:text-brand-600">{item.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+
+    <a
+      href={phoneHref}
+      class="hidden rounded-xl bg-brand-500 px-4 py-2 text-sm font-semibold text-white shadow-soft transition hover:bg-brand-600 xl:inline-flex"
+    >
+      {phoneDisplay}
+    </a>
+  </div>
+
+  <div class="hidden border-t border-slate-200 bg-slate-50 lg:block">
+    <div class="site-container flex flex-wrap items-center justify-between gap-3 py-2 text-xs text-slate-600">
+      <p>{address} • {hours}</p>
+      <div class="flex items-center gap-3">
+        {messengers.map((item) => (
+          <a href={item.href} target="_blank" rel="noopener noreferrer" class="hover:text-brand-600">
+            {item.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden border-t border-slate-200 bg-white lg:hidden">
+    <div class="site-container py-4">
+      <ul class="space-y-2 text-sm font-semibold text-slate-700">
+        {menu.map((item) => (
+          <li><a href={item.href} class="block rounded-lg px-3 py-2 hover:bg-slate-100">{item.label}</a></li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,60 @@
+<script is:inline>
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileLinks = mobileMenu?.querySelectorAll('a');
+
+  menuToggle?.addEventListener('click', () => {
+    const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+    menuToggle.setAttribute('aria-expanded', String(!expanded));
+    mobileMenu?.classList.toggle('hidden');
+  });
+
+  mobileLinks?.forEach((link) => {
+    link.addEventListener('click', () => {
+      menuToggle?.setAttribute('aria-expanded', 'false');
+      mobileMenu?.classList.add('hidden');
+    });
+  });
+
+  const faqButtons = document.querySelectorAll('.faq-btn');
+  faqButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const id = btn.getAttribute('data-faq-id');
+      const target = document.querySelector(`[data-faq-content="${id}"]`);
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+      faqButtons.forEach((otherBtn) => {
+        const otherId = otherBtn.getAttribute('data-faq-id');
+        const otherTarget = document.querySelector(`[data-faq-content="${otherId}"]`);
+        const sign = otherBtn.querySelector('[data-faq-sign]');
+        otherBtn.setAttribute('aria-expanded', 'false');
+        otherTarget?.classList.add('hidden');
+        if (sign) sign.textContent = '+';
+      });
+
+      if (!isOpen) {
+        btn.setAttribute('aria-expanded', 'true');
+        target?.classList.remove('hidden');
+        const sign = btn.querySelector('[data-faq-sign]');
+        if (sign) sign.textContent = '−';
+      }
+    });
+  });
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12 }
+  );
+
+  document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
+
+  const year = document.getElementById('year');
+  if (year) year.textContent = String(new Date().getFullYear());
+</script>

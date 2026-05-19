@@ -1,0 +1,44 @@
+---
+interface Props {
+  eyebrow: string;
+  accent: string;
+  title: string;
+  highlights: string[];
+  ctaHref: string;
+  ctaLabel: string;
+  backgroundImage: string;
+  sideImage: string;
+}
+
+const { eyebrow, accent, title, highlights, ctaHref, ctaLabel, backgroundImage, sideImage } = Astro.props;
+---
+
+<section class="relative overflow-hidden bg-slate-900 text-white">
+  <img src={backgroundImage} alt="" class="absolute inset-0 h-full w-full object-cover opacity-30" />
+  <img src={sideImage} alt="" class="absolute right-0 top-0 hidden h-full w-2/5 object-cover opacity-30 md:block" />
+  <div class="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-transparent"></div>
+
+  <div class="site-container relative py-16 md:py-24">
+    <span
+      data-reveal
+      class="inline-flex rounded-full border border-white/30 px-4 py-2 text-xs font-semibold uppercase tracking-wide"
+    >
+      {eyebrow}
+    </span>
+    <h1 data-reveal class="mt-5 max-w-3xl text-3xl font-semibold leading-tight md:text-5xl">
+      <b>{accent}</b> {title}
+    </h1>
+    <div data-reveal class="mt-8 grid gap-3 md:max-w-2xl md:grid-cols-3">
+      {highlights.map((item) => (
+        <div class="rounded-xl bg-white/10 p-4 backdrop-blur">{item}</div>
+      ))}
+    </div>
+    <a
+      data-reveal
+      href={ctaHref}
+      class="mt-8 inline-flex rounded-xl bg-brand-500 px-6 py-3 font-semibold text-white shadow-soft transition hover:bg-brand-600"
+    >
+      {ctaLabel}
+    </a>
+  </div>
+</section>

@@ -1,0 +1,81 @@
+---
+import RichTextBlock from '../RichTextBlock.astro';
+import type { SocialLink } from '../../data/site';
+
+interface Props {
+  address: string;
+  hours: string;
+  phoneDisplay: string;
+  phoneHref: string;
+  email: string;
+  requisitesUrl: string;
+  officePhotos: string[];
+  mapEmbedUrl: string;
+  socialLinks: SocialLink[];
+  NoteContent: any;
+}
+
+const {
+  address,
+  hours,
+  phoneDisplay,
+  phoneHref,
+  email,
+  requisitesUrl,
+  officePhotos,
+  mapEmbedUrl,
+  socialLinks,
+  NoteContent,
+} = Astro.props;
+---
+
+<section id="contacts" class="py-16">
+  <div class="site-container grid gap-8 lg:grid-cols-2">
+    <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft" data-reveal>
+      <h2 class="text-3xl font-semibold">
+        Наши <b>контакты</b>
+      </h2>
+      <RichTextBlock Content={NoteContent} className="mt-5" />
+      <div class="mt-5 space-y-3 text-slate-700">
+        <p><b>Адрес:</b> {address}</p>
+        <p><b>График:</b> {hours}, Сб-Вс — выходные</p>
+        <p>
+          <b>Телефон:</b> <a href={phoneHref} class="text-brand-600">{phoneDisplay}</a>
+        </p>
+        <p>
+          <b>Email:</b> <a href={`mailto:${email}`} class="text-brand-600">{email}</a>
+        </p>
+      </div>
+      <div class="mt-5 flex items-center gap-3">
+        {socialLinks.map((item) => (
+          <a target="_blank" rel="noopener noreferrer" href={item.href}>
+            <img src={item.icon} alt={item.label} class="h-10 w-10" loading="lazy" />
+          </a>
+        ))}
+      </div>
+      <a
+        href={requisitesUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-6 inline-block text-sm font-semibold text-brand-600 underline"
+      >
+        Реквизиты для юр. лиц
+      </a>
+    </div>
+
+    <div class="space-y-4">
+      <div data-reveal class="rounded-3xl border border-slate-200 bg-white p-4 shadow-soft">
+        <p class="mb-3 text-sm font-semibold">До встречи у нас в офисе</p>
+        <div class="grid grid-cols-3 gap-3">
+          {officePhotos.map((photo) => (
+            <img src={photo} alt="Офис" class="h-24 w-full rounded-xl object-cover" loading="lazy" />
+          ))}
+        </div>
+      </div>
+
+      <div data-reveal class="h-72 overflow-hidden rounded-3xl border border-slate-200 shadow-soft">
+        <iframe title="Карта" src={mapEmbedUrl} width="100%" height="100%" frameborder="0"></iframe>
+      </div>
+    </div>
+  </div>
+</section>

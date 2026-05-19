@@ -1,0 +1,43 @@
+---
+interface Props {
+  backgroundImage: string;
+  masterImage: string;
+  masterName: string;
+  masterRole: string;
+}
+
+const { backgroundImage, masterImage, masterName, masterRole } = Astro.props;
+---
+
+<section id="consultation" class="relative overflow-hidden bg-slate-900 py-16 text-white">
+  <img src={backgroundImage} alt="" class="absolute inset-0 h-full w-full object-cover opacity-30" />
+  <div class="site-container relative grid gap-8 md:grid-cols-2 md:items-center">
+    <div data-reveal class="flex items-end justify-center gap-3 rounded-2xl bg-white/10 p-4">
+      <img src={masterImage} alt={masterRole} class="h-72 w-auto" loading="lazy" />
+      <div>
+        <p class="font-semibold">{masterName}</p>
+        <span class="text-sm text-white/80">{masterRole}</span>
+      </div>
+    </div>
+    <div data-reveal>
+      <h2 class="text-3xl font-semibold md:text-4xl">
+        <b>Давайте начнем с консультации</b> и расчета стоимости бесплатно
+      </h2>
+      <form class="mt-6 grid gap-3 rounded-2xl bg-white/10 p-5 backdrop-blur">
+        <input
+          type="text"
+          placeholder="Ваше имя"
+          class="rounded-xl border border-white/40 bg-transparent px-4 py-3 text-white placeholder:text-white/70 outline-none"
+        />
+        <input
+          type="tel"
+          placeholder="Ваш номер телефона"
+          class="rounded-xl border border-white/40 bg-transparent px-4 py-3 text-white placeholder:text-white/70 outline-none"
+        />
+        <button type="button" class="rounded-xl bg-brand-500 px-6 py-3 font-semibold text-white hover:bg-brand-600">
+          Перезвоните мне
+        </button>
+      </form>
+    </div>
+  </div>
+</section>

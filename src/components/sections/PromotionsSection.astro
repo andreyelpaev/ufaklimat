@@ -1,0 +1,34 @@
+---
+import SectionHeading from '../SectionHeading.astro';
+import type { PromotionItem } from '../../data/site';
+
+interface Props {
+  items: PromotionItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<section id="discount" class="py-16">
+  <div class="site-container">
+    <SectionHeading accent="Акции и скидки" />
+    <div class="mt-8 grid gap-6 md:grid-cols-3">
+      {items.map((item) => (
+        <article
+          data-reveal
+          class="rounded-3xl border border-slate-200 bg-white p-5 shadow-soft transition hover:-translate-y-1 hover:shadow-2xl"
+        >
+          <img src={item.image} alt={item.title} class="h-44 w-full rounded-2xl object-cover" loading="lazy" />
+          <h3 class="mt-4 text-xl font-semibold">{item.title}</h3>
+          <p class="mt-2 text-sm text-slate-600">{item.text}</p>
+          <button
+            type="button"
+            class="mt-4 rounded-xl border border-brand-500 px-4 py-2 font-semibold text-brand-600 transition hover:bg-brand-500 hover:text-white"
+          >
+            Участвовать в акции
+          </button>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

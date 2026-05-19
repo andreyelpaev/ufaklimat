@@ -43,3 +43,36 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+
+.rich-text {
+  @apply leading-7 text-slate-700;
+}
+
+.rich-text > * + * {
+  margin-top: 1rem;
+}
+
+.rich-text a {
+  @apply text-brand-600 underline decoration-transparent transition;
+}
+
+.rich-text a:hover {
+  @apply decoration-current;
+}
+
+.rich-text strong {
+  @apply font-semibold text-slate-900;
+}
+
+.rich-text ul,
+.rich-text ol {
+  @apply pl-6;
+}
+
+.rich-text ul {
+  list-style: disc;
+}
+
+.rich-text ol {
+  list-style: decimal;
+}

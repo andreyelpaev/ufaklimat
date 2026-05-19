@@ -1,0 +1,45 @@
+---
+import SectionHeading from '../SectionHeading.astro';
+---
+
+<section id="quiz" class="bg-slate-50 py-16">
+  <div class="site-container">
+    <SectionHeading
+      accent="Получите подборку кондиционеров"
+      title="по вашим параметрам"
+      description="Ответьте на несколько вопросов"
+    />
+    <form data-reveal class="mt-8 grid gap-4 rounded-3xl bg-white p-6 shadow-soft md:grid-cols-2">
+      <label class="grid gap-2 text-sm font-semibold text-slate-700">
+        Куда установить?
+        <select class="rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-brand-500">
+          <option>В квартиру</option>
+          <option>В дом</option>
+          <option>В офис</option>
+        </select>
+      </label>
+      <label class="grid gap-2 text-sm font-semibold text-slate-700">
+        Площадь помещения
+        <select class="rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-brand-500">
+          <option>До 20 м²</option>
+          <option>20-35 м²</option>
+          <option>35+ м²</option>
+        </select>
+      </label>
+      <label class="grid gap-2 text-sm font-semibold text-slate-700 md:col-span-2">
+        Номер телефона
+        <input
+          type="tel"
+          placeholder="+7 (___) ___-__-__"
+          class="rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-brand-500"
+        />
+      </label>
+      <button
+        type="button"
+        class="rounded-xl bg-brand-500 px-6 py-3 font-semibold text-white transition hover:bg-brand-600 md:col-span-2"
+      >
+        Получить подборку и скидку
+      </button>
+    </form>
+  </div>
+</section>

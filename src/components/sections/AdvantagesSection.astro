@@ -1,0 +1,25 @@
+---
+import SectionHeading from '../SectionHeading.astro';
+import type { AdvantageItem } from '../../data/site';
+
+interface Props {
+  items: AdvantageItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<section id="reply" class="py-16">
+  <div class="site-container">
+    <SectionHeading accent="Вы ничем не рискуете" description="Самые комфортные условия для сотрудничества" />
+    <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {items.map((item) => (
+        <article data-reveal class="rounded-2xl border border-slate-200 bg-white p-5 shadow-soft">
+          <img src={item.image} alt={item.title} class="h-14 w-14" loading="lazy" />
+          <h3 class="mt-4 text-lg font-semibold">{item.title}</h3>
+          <p class="mt-2 text-sm text-slate-600">{item.text}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

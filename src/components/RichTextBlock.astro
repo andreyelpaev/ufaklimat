@@ -1,0 +1,12 @@
+---
+interface Props {
+  Content: any;
+  className?: string;
+}
+
+const { Content, className = '' } = Astro.props;
+---
+
+<div data-reveal class:list={['rich-text', className]}>
+  <Content />
+</div>

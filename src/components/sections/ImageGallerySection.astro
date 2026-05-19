@@ -1,0 +1,41 @@
+---
+import SectionHeading from '../SectionHeading.astro';
+
+interface Props {
+  id?: string;
+  accent?: string;
+  title?: string;
+  images: string[];
+  alt: string;
+  cardHeightClass: string;
+  sectionClass?: string;
+}
+
+const {
+  id,
+  accent = '',
+  title = '',
+  images,
+  alt,
+  cardHeightClass,
+  sectionClass = 'py-16',
+} = Astro.props;
+---
+
+<section id={id} class={sectionClass}>
+  <div class="site-container">
+    <SectionHeading accent={accent} title={title} />
+    <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {images.map((img) => (
+        <a data-reveal href={img} class="group overflow-hidden rounded-2xl">
+          <img
+            src={img}
+            alt={alt}
+            class:list={[cardHeightClass, 'w-full object-cover transition duration-300 group-hover:scale-105']}
+            loading="lazy"
+          />
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

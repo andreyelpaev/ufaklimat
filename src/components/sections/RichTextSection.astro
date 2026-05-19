@@ -1,0 +1,29 @@
+---
+import RichTextBlock from '../RichTextBlock.astro';
+import SectionHeading from '../SectionHeading.astro';
+
+interface Props {
+  id: string;
+  Content: any;
+  title?: string;
+  accent?: string;
+  sectionClass?: string;
+  containerClass?: string;
+}
+
+const {
+  id,
+  Content,
+  title = '',
+  accent = '',
+  sectionClass = 'py-16',
+  containerClass = 'site-container max-w-4xl',
+} = Astro.props;
+---
+
+<section id={id} class={sectionClass}>
+  <div class={containerClass}>
+    <SectionHeading centered={false} title={title} accent={accent} />
+    <RichTextBlock Content={Content} className="mt-5 text-slate-700" />
+  </div>
+</section>

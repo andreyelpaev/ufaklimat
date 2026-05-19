@@ -16,12 +16,14 @@ import portfolioOutdoorFreonCheck01 from '../assets/portfolio-outdoor-freon-chec
 import portfolioOutdoorFreonCheck02 from '../assets/portfolio-outdoor-freon-check-02.jpg';
 import portfolioOutdoorInstall01 from '../assets/portfolio-outdoor-install-01.jpg';
 import portfolioOutdoorInstall02 from '../assets/portfolio-outdoor-install-02.jpg';
+import portfolioOutdoorInstall03 from '../assets/portfolio-outdoor-install-03.jpg';
 import portfolioOutdoorInstallLorot01 from '../assets/portfolio-outdoor-install-lorot-01.jpg';
 import portfolioOutdoorServiceHeight01 from '../assets/portfolio-outdoor-service-height-01.jpg';
 import portfolioOutdoorUnitGround01 from '../assets/portfolio-outdoor-unit-ground-01.jpg';
 import portfolioServiceFreon01 from '../assets/portfolio-service-freon-01.jpg';
 import portfolioServiceHeight02 from '../assets/portfolio-service-height-02.jpg';
 import portfolioServiceHeight03 from '../assets/portfolio-service-height-03.jpg';
+import portfolioServiceHeight04 from '../assets/portfolio-service-height-04.jpg';
 import portfolioServiceLadder01 from '../assets/portfolio-service-ladder-01.jpg';
 import portfolioWallPassThrough01 from '../assets/portfolio-wall-pass-through-01.jpg';
 
@@ -230,6 +232,7 @@ export const certificates = [
 
 export const portfolio = [
   portfolioOutdoorInstall02.src,
+  portfolioOutdoorInstall03.src,
   portfolioIndoorCoveredUnit01.src,
   portfolioWallPassThrough01.src,
   portfolioBracketLevel01.src,
@@ -244,6 +247,7 @@ export const portfolio = [
   portfolioFanCleaning01.src,
   portfolioServiceHeight02.src,
   portfolioServiceHeight03.src,
+  portfolioServiceHeight04.src,
 ];
 
 export const reviews: ReviewItem[] = [

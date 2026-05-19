@@ -1,0 +1,585 @@
+---
+import '../styles/global.css';
+
+const site = 'https://landing-magazin.ru/uslugi/stroyka/konder-6';
+const asset = (path) => `${site}/${path}`;
+
+const menu = [
+  { href: '#products', label: 'Каталог' },
+  { href: '#deadlines', label: 'Услуги' },
+  { href: '#process', label: 'Портфолио' },
+  { href: '#discount', label: 'Акции' },
+  { href: '#otziv', label: 'Отзывы' },
+  { href: '#faq', label: 'Вопрос-ответ' },
+  { href: '#kompanya', label: 'О компании' },
+  { href: '#contacts', label: 'Контакты' },
+];
+
+const services = [
+  {
+    title: 'Подбор и продажа',
+    text: 'В наличии на складе более 700+ моделей кондиционеров под разный бюджет.',
+    image: asset('content/uploads/2025/05/1-1-min.jpg'),
+  },
+  {
+    title: 'Монтаж кондиционеров',
+    text: 'Приедем к вам на объект и смонтируем кондиционер за 1 день с гарантией 2 года.',
+    image: asset('content/uploads/2025/05/samodzielny-montaz-jednoski-wewnetrznej-klimatyzacji-nasciennej.jpg'),
+  },
+  {
+    title: 'Ремонт кондиционеров',
+    text: 'Оказываем полный комплекс услуг по ремонту и восстановлению кондиционеров.',
+    image: asset('content/uploads/2025/05/228-f6c1c0b6028bb87da2f307940582ae5c.jpg'),
+  },
+];
+
+const products = Array.from({ length: 8 }, (_, i) => ({
+  name: `Умная сплит-система Rapid RAM-0${i + 1}`,
+  current: '17 999 ₽',
+  old: '20 999 ₽',
+  image: asset(`content/uploads/2025/05/tovar-${i + 1}.jpg`),
+}));
+
+const partnerLogos = ['22', '23', '24', '25', '26', '27', '28'].map((id) =>
+  asset(`content/uploads/2025/05/image-${id}.jpg`),
+);
+
+const certificates = [1, 4, 3, 2].map((id) => asset(`content/uploads/2022/10/certificates-${id}.jpg`));
+const portfolio = Array.from({ length: 12 }, (_, i) => asset(`content/uploads/2025/05/montazh-${i + 1}.jpg`));
+
+const reviews = [
+  {
+    name: 'Андрей Сиванов',
+    city: 'Москва',
+    avatar: asset('content/uploads/2022/10/review-person.jpg'),
+    photos: [
+      asset('content/uploads/2025/05/montazh-gree.jpg'),
+      asset('content/uploads/2025/05/ustanovka-konditsionerov-gree.jpg'),
+    ],
+    text: 'Мы недавно купили квартиру, сделали свежий ремонт. Очень переживали за аккуратность монтажа, но команда сработала чисто и спокойно. Никакой грязи не оставили, всё сделали профессионально.',
+  },
+  {
+    name: 'Игорь Никифоров',
+    city: 'Москва',
+    avatar: asset('content/uploads/2022/10/review-person.jpg'),
+    photos: [asset('content/uploads/2025/05/kondicioner.jpg')],
+    text: 'Подобрали модель под мой бюджет, приехали в согласованное время и закрыли монтаж за один день. Понравилась прозрачная смета и что стоимость не изменилась в процессе.',
+  },
+];
+
+const advantages = [
+  {
+    title: 'Фиксированная стоимость',
+    text: 'Наши цены не меняются в процессе работ.',
+    image: asset('content/uploads/2025/05/icons8-czena-80.png'),
+  },
+  {
+    title: 'Оперативность и скорость',
+    text: 'Все работы проходят быстро и эффективно.',
+    image: asset('content/uploads/2025/05/icons8-skorost-100.png'),
+  },
+  {
+    title: 'Контроль качества',
+    text: 'Монтаж выполняется строго по чек-листу.',
+    image: asset('content/uploads/2025/05/icons8-vysokoe-kachestvo-100.png'),
+  },
+  {
+    title: 'Оплата по факту',
+    text: 'Оплачиваете после завершения работ.',
+    image: asset('content/uploads/2025/05/icons8-oplata-100.png'),
+  },
+  {
+    title: 'Гарантия в договоре',
+    text: 'До 2 лет на работы и до 10 лет на оборудование.',
+    image: asset('content/uploads/2025/05/icons8-garantiya-100-1.png'),
+  },
+  {
+    title: 'Качественные материалы',
+    text: 'Используем только проверенных производителей.',
+    image: asset('content/uploads/2025/05/icons8-garantiya-100.png'),
+  },
+];
+
+const faq = [
+  {
+    q: 'Какой кондиционер лучше выбрать для квартиры, офиса или дома?',
+    a: 'Это зависит от площади и сценария использования. До 25 м² обычно выбирают 9 000 BTU, 25–35 м² — 12 000 BTU, большие помещения — от 18 000 BTU.',
+  },
+  { q: 'Сколько времени занимает установка?', a: 'В среднем 2–4 часа, если не требуется сложная трасса.' },
+  { q: 'Какие гарантии вы даете?', a: 'На оборудование 1–3 года (в зависимости от бренда), на монтаж — 2 года.' },
+  { q: 'Делаете ли скрытый монтаж?', a: 'Да, работаем с канальными и кассетными системами. Стоимость зависит от сложности.' },
+  { q: 'Входит ли монтаж в стоимость кондиционера?', a: 'Обычно отдельно, но при покупке у нас предоставляется скидка на установку.' },
+  { q: 'Можно ли устанавливать кондиционер зимой?', a: 'Да, при сильном минусе требуется спецоборудование.' },
+  { q: 'Нужно ли обслуживать кондиционер после установки?', a: 'Рекомендуем профилактику и чистку раз в 1–2 года.' },
+  { q: 'Что делать, если кондиционер шумит или течет?', a: 'Свяжитесь с нами: мастер приедет на диагностику и устранение.' },
+];
+
+const promotions = [
+  {
+    title: 'Рассрочка 0% на 12 месяцев',
+    text: 'Нажмите на кнопку, чтобы узнать подробности предложения.',
+    image: asset('content/uploads/2022/10/group-473-1.png'),
+  },
+  {
+    title: 'Установка в подарок!',
+    text: 'При покупке кондиционера от 30 000 ₽ монтаж бесплатно.',
+    image: asset('content/uploads/2025/05/rectangle-891.png'),
+  },
+  {
+    title: 'Трейд-ин: старый на новый',
+    text: 'Обновите технику на выгодных условиях.',
+    image: asset('content/uploads/2025/05/group-474.png'),
+  },
+];
+---
+
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Установка кондиционеров</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/90 backdrop-blur">
+      <div class="site-container flex items-center justify-between gap-4 py-4">
+        <a href="#" class="shrink-0">
+          <img src={asset('content/uploads/2025/05/logo.png')} alt="Логотип" class="h-10 w-auto" loading="eager" />
+        </a>
+
+        <button id="menu-toggle" class="rounded-lg border border-slate-300 p-2 lg:hidden" aria-label="Открыть меню" aria-expanded="false">
+          <span class="block h-0.5 w-5 bg-slate-700"></span>
+          <span class="mt-1.5 block h-0.5 w-5 bg-slate-700"></span>
+          <span class="mt-1.5 block h-0.5 w-5 bg-slate-700"></span>
+        </button>
+
+        <nav class="hidden flex-1 lg:block">
+          <ul class="flex flex-wrap items-center justify-center gap-5 text-sm font-semibold text-slate-700">
+            {menu.map((item) => (
+              <li><a href={item.href} class="transition hover:text-brand-600">{item.label}</a></li>
+            ))}
+          </ul>
+        </nav>
+
+        <a href="tel:+79999999999" class="hidden rounded-xl bg-brand-500 px-4 py-2 text-sm font-semibold text-white shadow-soft transition hover:bg-brand-600 xl:inline-flex">
+          +7 (999) 999-99-99
+        </a>
+      </div>
+
+      <div class="hidden border-t border-slate-200 bg-slate-50 lg:block">
+        <div class="site-container flex flex-wrap items-center justify-between gap-3 py-2 text-xs text-slate-600">
+          <p>г. Москва, ул. Большая, 50 • Пн-Пт: 9:00 - 18:00</p>
+          <div class="flex items-center gap-3">
+            <a href="https://api.whatsapp.com/send?phone=79000000000" target="_blank" rel="noopener noreferrer" class="hover:text-brand-600">WhatsApp</a>
+            <a href="https://telegram.me/telegram_user_name" target="_blank" rel="noopener noreferrer" class="hover:text-brand-600">Telegram</a>
+          </div>
+        </div>
+      </div>
+
+      <div id="mobile-menu" class="hidden border-t border-slate-200 bg-white lg:hidden">
+        <div class="site-container py-4">
+          <ul class="space-y-2 text-sm font-semibold text-slate-700">
+            {menu.map((item) => (
+              <li><a href={item.href} class="block rounded-lg px-3 py-2 hover:bg-slate-100">{item.label}</a></li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="relative overflow-hidden bg-slate-900 text-white">
+        <img src={asset('content/uploads/2025/05/1234.jpg')} alt="" class="absolute inset-0 h-full w-full object-cover opacity-30" />
+        <img src={asset('content/uploads/2025/05/234.jpg')} alt="" class="absolute right-0 top-0 hidden h-full w-2/5 object-cover opacity-30 md:block" />
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-transparent"></div>
+
+        <div class="site-container relative py-16 md:py-24">
+          <span data-reveal class="inline-flex rounded-full border border-white/30 px-4 py-2 text-xs font-semibold uppercase tracking-wide">
+            Подбор • Монтаж • Гарантия
+          </span>
+          <h1 data-reveal class="mt-5 max-w-3xl text-3xl font-semibold leading-tight md:text-5xl">
+            <b>Подберем и установим кондиционер за 3 часа</b> в квартире, доме или офисе
+          </h1>
+          <div data-reveal class="mt-8 grid gap-3 md:max-w-2xl md:grid-cols-3">
+            <div class="rounded-xl bg-white/10 p-4 backdrop-blur">Бесплатный выезд мастера</div>
+            <div class="rounded-xl bg-white/10 p-4 backdrop-blur">Мастера с опытом от 15 лет</div>
+            <div class="rounded-xl bg-white/10 p-4 backdrop-blur">Доставка и монтаж за 1 день</div>
+          </div>
+          <a data-reveal href="#quiz" class="mt-8 inline-flex rounded-xl bg-brand-500 px-6 py-3 font-semibold text-white shadow-soft transition hover:bg-brand-600">
+            Подобрать кондиционер
+          </a>
+        </div>
+      </section>
+
+      <section id="quiz" class="bg-slate-50 py-16">
+        <div class="site-container">
+          <h2 data-reveal class="text-center text-3xl font-semibold md:text-4xl"><b>Получите подборку кондиционеров</b> по вашим параметрам</h2>
+          <p data-reveal class="mt-3 text-center text-slate-600">Ответьте на несколько вопросов</p>
+          <form data-reveal class="mt-8 grid gap-4 rounded-3xl bg-white p-6 shadow-soft md:grid-cols-2">
+            <label class="grid gap-2 text-sm font-semibold text-slate-700">
+              Куда установить?
+              <select class="rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-brand-500">
+                <option>В квартиру</option>
+                <option>В дом</option>
+                <option>В офис</option>
+              </select>
+            </label>
+            <label class="grid gap-2 text-sm font-semibold text-slate-700">
+              Площадь помещения
+              <select class="rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-brand-500">
+                <option>До 20 м²</option>
+                <option>20-35 м²</option>
+                <option>35+ м²</option>
+              </select>
+            </label>
+            <label class="grid gap-2 text-sm font-semibold text-slate-700 md:col-span-2">
+              Номер телефона
+              <input type="tel" placeholder="+7 (___) ___-__-__" class="rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-brand-500" />
+            </label>
+            <button type="button" class="md:col-span-2 rounded-xl bg-brand-500 px-6 py-3 font-semibold text-white transition hover:bg-brand-600">
+              Получить подборку и скидку
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <section id="deadlines" class="py-16">
+        <div class="site-container">
+          <h2 data-reveal class="text-center text-3xl font-semibold md:text-4xl"><b>Наши услуги</b></h2>
+          <div class="mt-10 grid gap-6 md:grid-cols-3">
+            {services.map((item) => (
+              <article data-reveal class="rounded-3xl border border-slate-200 bg-white p-4 shadow-soft transition hover:-translate-y-1 hover:shadow-2xl">
+                <img src={item.image} alt={item.title} class="h-48 w-full rounded-2xl object-cover" loading="lazy" />
+                <h3 class="mt-4 text-xl font-semibold">{item.title}</h3>
+                <p class="mt-2 text-sm text-slate-600">{item.text}</p>
+                <button type="button" class="mt-4 w-full rounded-xl bg-brand-500 px-4 py-3 font-semibold text-white hover:bg-brand-600">
+                  Оставить заявку
+                </button>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="products" class="bg-slate-50 py-16">
+        <div class="site-container">
+          <h2 data-reveal class="text-center text-3xl font-semibold md:text-4xl"><b>Самые популярные модели</b> кондиционеров для квартиры</h2>
+          <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {products.map((item) => (
+              <article data-reveal class="rounded-3xl bg-white p-4 shadow-soft transition hover:-translate-y-1 hover:shadow-2xl">
+                <img src={item.image} alt={item.name} class="h-52 w-full rounded-2xl object-cover" loading="lazy" />
+                <h3 class="mt-4 text-base font-semibold">{item.name}</h3>
+                <div class="mt-2 flex items-center gap-2">
+                  <span class="text-lg font-bold text-brand-600">{item.current}</span>
+                  <span class="text-sm text-slate-400 line-through">{item.old}</span>
+                </div>
+                <button type="button" class="mt-4 w-full rounded-xl border border-brand-500 px-4 py-3 font-semibold text-brand-600 transition hover:bg-brand-500 hover:text-white">
+                  Заказать в 1 клик
+                </button>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="py-16" id="partners">
+        <div class="site-container">
+          <h2 data-reveal class="text-center text-3xl font-semibold md:text-4xl"><b>Предлагаем оптовые цены</b> на кондиционеры от надежных брендов</h2>
+          <div class="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-7">
+            {partnerLogos.map((img) => (
+              <div data-reveal class="rounded-2xl border border-slate-200 bg-white p-3 shadow-soft">
+                <img src={img} alt="Бренд" class="h-16 w-full object-contain" loading="lazy" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="relative overflow-hidden bg-slate-900 py-16 text-white" id="download-price">
+        <img src={asset('content/uploads/2025/05/12123.jpg')} alt="" class="absolute inset-0 h-full w-full object-cover opacity-30" />
+        <div class="site-container relative grid gap-8 md:grid-cols-2 md:items-center">
+          <img data-reveal src={asset('content/uploads/2025/05/price-1.png')} alt="Прайс" class="mx-auto w-64 md:w-80" loading="lazy" />
+          <div data-reveal>
+            <h2 class="text-3xl font-semibold md:text-4xl"><b>Скачайте прайс-лист</b> на все услуги в 1 клик</h2>
+            <form class="mt-6 grid gap-3 rounded-2xl bg-white/10 p-5 backdrop-blur">
+              <select class="rounded-xl border border-white/40 bg-transparent px-4 py-3 text-white outline-none">
+                <option class="text-slate-900">Получить в WhatsApp</option>
+                <option class="text-slate-900">Получить в Telegram</option>
+                <option class="text-slate-900">Получить в Viber</option>
+              </select>
+              <input type="tel" placeholder="Ваш номер телефона" class="rounded-xl border border-white/40 bg-transparent px-4 py-3 text-white placeholder:text-white/70 outline-none" />
+              <button type="button" class="rounded-xl bg-brand-500 px-6 py-3 font-semibold text-white hover:bg-brand-600">Получить прайс сейчас</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-16">
+        <div class="site-container">
+          <h2 data-reveal class="text-center text-3xl font-semibold md:text-4xl"><b>Сертификаты</b></h2>
+          <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {certificates.map((img) => (
+              <a data-reveal href={img} class="group overflow-hidden rounded-2xl">
+                <img src={img} alt="Сертификат" class="h-72 w-full object-cover transition duration-300 group-hover:scale-105" loading="lazy" />
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="process" class="bg-slate-50 py-16">
+        <div class="site-container">
+          <h2 data-reveal class="text-center text-3xl font-semibold md:text-4xl"><b>Посмотрите последние</b> наши работы</h2>
+          <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {portfolio.map((img) => (
+              <a data-reveal href={img} class="group overflow-hidden rounded-2xl">
+                <img src={img} alt="Работа" class="h-52 w-full object-cover transition duration-300 group-hover:scale-105" loading="lazy" />
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="otziv" class="py-16">
+        <div class="site-container">
+          <h2 data-reveal class="text-center text-3xl font-semibold md:text-4xl"><b>Отзывы</b> наших клиентов</h2>
+          <div class="mt-8 grid gap-6 lg:grid-cols-2">
+            {reviews.map((review) => (
+              <article data-reveal class="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft">
+                <div class="flex items-center gap-4">
+                  <img src={review.avatar} alt={review.name} class="h-14 w-14 rounded-full object-cover" loading="lazy" />
+                  <div>
+                    <div class="text-lg font-semibold">{review.name}</div>
+                    <div class="text-sm text-slate-500">{review.city}</div>
+                  </div>
+                </div>
+                <p class="mt-4 text-slate-700">{review.text}</p>
+                <div class="mt-4 grid grid-cols-2 gap-3">
+                  {review.photos.map((photo) => (
+                    <img src={photo} alt="Фото объекта" class="h-32 w-full rounded-xl object-cover" loading="lazy" />
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="consultation" class="relative overflow-hidden bg-slate-900 py-16 text-white">
+        <img src={asset('content/uploads/2025/05/12123.jpg')} alt="" class="absolute inset-0 h-full w-full object-cover opacity-30" />
+        <div class="site-container relative grid gap-8 md:grid-cols-2 md:items-center">
+          <div data-reveal class="flex items-end justify-center gap-3 rounded-2xl bg-white/10 p-4">
+            <img src={asset('content/uploads/2022/11/122.png')} alt="Старший мастер" class="h-72 w-auto" loading="lazy" />
+            <div>
+              <p class="font-semibold">Артем Лошиневич</p>
+              <span class="text-sm text-white/80">Старший мастер</span>
+            </div>
+          </div>
+          <div data-reveal>
+            <h2 class="text-3xl font-semibold md:text-4xl"><b>Давайте начнем с консультации</b> и расчета стоимости бесплатно</h2>
+            <form class="mt-6 grid gap-3 rounded-2xl bg-white/10 p-5 backdrop-blur">
+              <input type="text" placeholder="Ваше имя" class="rounded-xl border border-white/40 bg-transparent px-4 py-3 text-white placeholder:text-white/70 outline-none" />
+              <input type="tel" placeholder="Ваш номер телефона" class="rounded-xl border border-white/40 bg-transparent px-4 py-3 text-white placeholder:text-white/70 outline-none" />
+              <button type="button" class="rounded-xl bg-brand-500 px-6 py-3 font-semibold text-white hover:bg-brand-600">Перезвоните мне</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section id="reply" class="py-16">
+        <div class="site-container">
+          <h2 data-reveal class="text-center text-3xl font-semibold md:text-4xl"><b>Вы ничем не рискуете</b></h2>
+          <p data-reveal class="mt-3 text-center text-slate-600">Самые комфортные условия для сотрудничества</p>
+          <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {advantages.map((item) => (
+              <article data-reveal class="rounded-2xl border border-slate-200 bg-white p-5 shadow-soft">
+                <img src={item.image} alt={item.title} class="h-14 w-14" loading="lazy" />
+                <h3 class="mt-4 text-lg font-semibold">{item.title}</h3>
+                <p class="mt-2 text-sm text-slate-600">{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="bg-slate-50 py-16">
+        <div class="site-container">
+          <h2 data-reveal class="text-center text-3xl font-semibold md:text-4xl">Часто задаваемые <b>вопросы и ответы</b></h2>
+          <div class="mx-auto mt-8 max-w-4xl space-y-3">
+            {faq.map((item, index) => (
+              <div data-reveal class="rounded-2xl border border-slate-200 bg-white">
+                <button class="faq-btn flex w-full items-center justify-between gap-3 px-5 py-4 text-left font-semibold" data-faq-id={index} aria-expanded="false">
+                  <span>{item.q}</span>
+                  <span data-faq-sign class="text-brand-600">+</span>
+                </button>
+                <div class="faq-content hidden border-t border-slate-100 px-5 py-4 text-sm text-slate-600" data-faq-content={index}>
+                  {item.a}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="discount" class="py-16">
+        <div class="site-container">
+          <h2 data-reveal class="text-center text-3xl font-semibold md:text-4xl"><b>Акции и скидки</b></h2>
+          <div class="mt-8 grid gap-6 md:grid-cols-3">
+            {promotions.map((item) => (
+              <article data-reveal class="rounded-3xl border border-slate-200 bg-white p-5 shadow-soft transition hover:-translate-y-1 hover:shadow-2xl">
+                <img src={item.image} alt={item.title} class="h-44 w-full rounded-2xl object-cover" loading="lazy" />
+                <h3 class="mt-4 text-xl font-semibold">{item.title}</h3>
+                <p class="mt-2 text-sm text-slate-600">{item.text}</p>
+                <button type="button" class="mt-4 rounded-xl border border-brand-500 px-4 py-2 font-semibold text-brand-600 transition hover:bg-brand-500 hover:text-white">
+                  Участвовать в акции
+                </button>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="kompanya" class="bg-grid py-16">
+        <div class="site-container max-w-4xl">
+          <h2 data-reveal class="text-3xl font-semibold md:text-4xl">Компания по монтажу и продаже кондиционеров в Москве и МО</h2>
+          <div data-reveal class="mt-5 space-y-4 text-slate-700">
+            <p>
+              Работаем с квартирами, домами и коммерческими помещениями. Подбираем оборудование по реальной нагрузке, а не «по шаблону», чтобы система служила дольше и работала тише.
+            </p>
+            <p>
+              Сначала проводим консультацию и выезд, затем фиксируем смету, сроки и объем работ. Используем проверенные материалы, соблюдаем чек-листы монтажа и остаемся на связи после установки.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacts" class="py-16">
+        <div class="site-container grid gap-8 lg:grid-cols-2">
+          <div data-reveal class="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft">
+            <h2 class="text-3xl font-semibold">Наши <b>контакты</b></h2>
+            <div class="mt-5 space-y-3 text-slate-700">
+              <p><b>Адрес:</b> г. Москва, ул. Большая, 50</p>
+              <p><b>График:</b> Пн-Пт: 9:00 - 18:00, Сб-Вс — выходные</p>
+              <p><b>Телефон:</b> <a href="tel:+79999999999" class="text-brand-600">+7(999)999-99-99</a></p>
+              <p><b>Email:</b> <a href="mailto:info@site.ru" class="text-brand-600">info@site.ru</a></p>
+            </div>
+            <div class="mt-5 flex items-center gap-3">
+              <a target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=79000000000">
+                <img src={asset('content/uploads/2022/11/whats-app.png')} alt="WhatsApp" class="h-10 w-10" loading="lazy" />
+              </a>
+              <a target="_blank" rel="noopener noreferrer" href="https://telegram.me/telegram_user_name">
+                <img src={asset('content/uploads/2022/11/telegram.png')} alt="Telegram" class="h-10 w-10" loading="lazy" />
+              </a>
+              <a target="_blank" rel="noopener noreferrer" href="#">
+                <img src={asset('content/uploads/2022/11/vk.png')} alt="VK" class="h-10 w-10" loading="lazy" />
+              </a>
+            </div>
+            <a href={asset('content/uploads/2025/05/file.pdf')} target="_blank" rel="noopener noreferrer" class="mt-6 inline-block text-sm font-semibold text-brand-600 underline">
+              Реквизиты для юр. лиц
+            </a>
+          </div>
+
+          <div class="space-y-4">
+            <div data-reveal class="rounded-3xl border border-slate-200 bg-white p-4 shadow-soft">
+              <p class="mb-3 text-sm font-semibold">До встречи у нас в офисе</p>
+              <div class="grid grid-cols-3 gap-3">
+                <img src={asset('content/uploads/2025/05/1-1-min-1.jpg')} alt="Офис" class="h-24 w-full rounded-xl object-cover" loading="lazy" />
+                <img src={asset('content/uploads/2025/05/l_height.webp')} alt="Офис" class="h-24 w-full rounded-xl object-cover" loading="lazy" />
+                <img src={asset('content/uploads/2025/05/05-12-19-1.jpg')} alt="Офис" class="h-24 w-full rounded-xl object-cover" loading="lazy" />
+              </div>
+            </div>
+
+            <div data-reveal class="h-72 overflow-hidden rounded-3xl border border-slate-200 shadow-soft">
+              <iframe
+                title="Карта"
+                src="https://yandex.ru/map-widget/v1/?um=constructor%3Add1bb6dfe9020e9f090f6b1be2208213db030da399a0dadc36b16f94d1a4caab&source=constructor"
+                width="100%"
+                height="100%"
+                frameborder="0"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <section class="fixed inset-x-3 bottom-3 z-40 grid grid-cols-2 gap-2 rounded-2xl bg-white/95 p-2 shadow-soft backdrop-blur md:hidden">
+      <a href="#quiz" class="rounded-xl bg-brand-500 px-4 py-2 text-center text-sm font-semibold text-white">Калькулятор</a>
+      <a href="#download-price" class="rounded-xl border border-brand-500 px-4 py-2 text-center text-sm font-semibold text-brand-600">Прайс</a>
+    </section>
+
+    <section class="fixed bottom-5 right-5 z-40 hidden flex-col gap-2 md:flex">
+      <a href="#quiz" class="rounded-xl bg-brand-500 px-4 py-3 text-sm font-semibold text-white shadow-soft">Калькулятор</a>
+      <a href="#download-price" class="rounded-xl bg-white px-4 py-3 text-sm font-semibold text-brand-600 shadow-soft">Скачать прайс</a>
+    </section>
+
+    <footer class="border-t border-slate-200 bg-white py-6">
+      <div class="site-container flex flex-col gap-2 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
+        <p>Все права защищены</p>
+        <p>Политика конфиденциальности</p>
+        <p>ИНН: 000000000, ОГРН: 00000000000 • <span id="year"></span></p>
+      </div>
+    </footer>
+
+    <script is:inline>
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileLinks = mobileMenu?.querySelectorAll('a');
+
+      menuToggle?.addEventListener('click', () => {
+        const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', String(!expanded));
+        mobileMenu?.classList.toggle('hidden');
+      });
+
+      mobileLinks?.forEach((link) => {
+        link.addEventListener('click', () => {
+          menuToggle?.setAttribute('aria-expanded', 'false');
+          mobileMenu?.classList.add('hidden');
+        });
+      });
+
+      const faqButtons = document.querySelectorAll('.faq-btn');
+      faqButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const id = btn.getAttribute('data-faq-id');
+          const target = document.querySelector(`[data-faq-content="${id}"]`);
+          const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+          faqButtons.forEach((otherBtn) => {
+            const otherId = otherBtn.getAttribute('data-faq-id');
+            const otherTarget = document.querySelector(`[data-faq-content="${otherId}"]`);
+            const sign = otherBtn.querySelector('[data-faq-sign]');
+            otherBtn.setAttribute('aria-expanded', 'false');
+            otherTarget?.classList.add('hidden');
+            if (sign) sign.textContent = '+';
+          });
+
+          if (!isOpen) {
+            btn.setAttribute('aria-expanded', 'true');
+            target?.classList.remove('hidden');
+            const sign = btn.querySelector('[data-faq-sign]');
+            if (sign) sign.textContent = '−';
+          }
+        });
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+
+      document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
+      const year = document.getElementById('year');
+      if (year) year.textContent = String(new Date().getFullYear());
+    </script>
+  </body>
+</html>

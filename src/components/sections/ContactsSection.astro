@@ -39,7 +39,7 @@ const {
       <RichTextBlock Content={NoteContent} className="mt-5" />
       <div class="mt-5 space-y-3 text-slate-700">
         <p><b>Адрес:</b> {address}</p>
-        <p><b>График:</b> {hours}, Сб-Вс — выходные</p>
+        <p><b>График:</b> {hours}</p>
         <p>
           <b>Телефон:</b> <a href={phoneHref} class="text-brand-600">{phoneDisplay}</a>
         </p>
@@ -60,14 +60,6 @@ const {
           </a>
         ))}
       </div>
-      <a
-        href={requisitesUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="mt-6 inline-block text-sm font-semibold text-brand-600 underline"
-      >
-        Реквизиты для юр. лиц
-      </a>
     </div>
       <div data-reveal class="h-auto overflow-hidden rounded-3xl border border-slate-200 shadow-soft">
         <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A6a20313bdf362764ab5985f7fa098387242a81707e96920138cddbcd2ce99727&amp;width=574&amp;height=494&amp;lang=ru_RU&amp;scroll=true"></script>

@@ -116,7 +116,7 @@ export const menu: MenuItem[] = [
 export const companyInfo = {
   logo: logo.src,
   address: 'г. Уфа, ул. Проспект Октября 66а',
-  hours: 'Пн-Пт: 9:00 - 18:00',
+  hours: '24/7',
   phoneDisplay: '+7 (987) 587-20-23',
   phoneHref: 'tel:+79875872023',
   email: 'info@ufa-klimat.ru',

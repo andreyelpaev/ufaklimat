@@ -1,6 +1,7 @@
 ---
 import ContactsNote from '../content/text/contacts-note.mdx';
 import CompanyContent from '../content/text/company.mdx';
+import ContactModal from '../components/ContactModal.astro';
 import FloatingActions from '../components/FloatingActions.astro';
 import PageScripts from '../components/PageScripts.astro';
 import SiteFooter from '../components/SiteFooter.astro';
@@ -23,13 +24,14 @@ import {
   advantages,
   certificates,
   companyInfo,
+  contactModal,
   consultationLead,
   contactsCard,
   faq,
   hero,
   menu,
   messengerLinks,
-  partnerLogos,
+  partnerBrands,
   portfolio,
   priceLead,
   products,
@@ -56,7 +58,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <HeroSection {...hero} />
     <ServicesSection items={services} />
     <ProductsSection items={products} />
-    <PartnersSection logos={partnerLogos} />
+    <PartnersSection brands={partnerBrands} />
     <DownloadPriceSection {...priceLead} />
     <ImageGallerySection
       id="process"
@@ -91,6 +93,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     />
   </main>
 
+  <ContactModal contact={contactModal} />
   <SiteFooter inn={companyInfo.inn} ogrn={companyInfo.ogrn} />
   <PageScripts />
 </BaseLayout>

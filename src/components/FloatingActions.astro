@@ -8,22 +8,23 @@ const { quizHref, priceHref } = Astro.props;
 ---
 
 <section class="fixed inset-x-3 bottom-3 z-40 grid grid-cols-2 gap-2 rounded-2xl bg-white/95 p-2 shadow-soft backdrop-blur md:hidden">
-  <a href={quizHref} class="rounded-xl bg-brand-500 px-4 py-2 text-center text-sm font-semibold text-white">
+  <a href={quizHref} data-contact-modal-trigger class="rounded-xl bg-brand-500 px-4 py-2 text-center text-sm font-semibold text-white">
     Калькулятор
   </a>
   <a
     href={priceHref}
+    data-contact-modal-trigger
     class="rounded-xl border border-brand-500 px-4 py-2 text-center text-sm font-semibold text-brand-600"
   >
-    Прайс
+    3 решения
   </a>
 </section>
 
 <section class="fixed bottom-5 right-5 z-40 hidden flex-col gap-2 md:flex">
-  <a href={quizHref} class="rounded-xl bg-brand-500 px-4 py-3 text-sm font-semibold text-white shadow-soft">
+  <a href={quizHref} data-contact-modal-trigger class="rounded-xl bg-brand-500 px-4 py-3 text-sm font-semibold text-white shadow-soft">
     Калькулятор
   </a>
-  <a href={priceHref} class="rounded-xl bg-white px-4 py-3 text-sm font-semibold text-brand-600 shadow-soft">
-    Скачать прайс
+  <a href={priceHref} data-contact-modal-trigger class="rounded-xl bg-white px-4 py-3 text-sm font-semibold text-brand-600 shadow-soft">
+    3 решения
   </a>
 </section>

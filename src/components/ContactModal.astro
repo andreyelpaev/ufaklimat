@@ -1,0 +1,67 @@
+---
+import LucideIcon from './LucideIcon.astro';
+import type { ContactModalData } from '../data/site';
+
+interface Props {
+  contact: ContactModalData;
+}
+
+const { contact } = Astro.props;
+---
+
+<div
+  id="contact-modal"
+  class="fixed inset-0 z-[80] hidden items-center justify-center bg-slate-950/60 p-4 backdrop-blur-sm"
+  aria-hidden="true"
+>
+  <div class="absolute inset-0" data-contact-modal-close></div>
+  <div
+    class="relative z-10 w-full max-w-md rounded-[2rem] bg-white p-6 shadow-2xl md:p-8"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="contact-modal-title"
+  >
+    <button
+      type="button"
+      class="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition hover:border-slate-300 hover:text-slate-900"
+      aria-label="Закрыть окно"
+      data-contact-modal-close
+    >
+      <LucideIcon name="x" className="h-5 w-5" />
+    </button>
+
+    <p class="text-xs font-semibold uppercase tracking-[0.22em] text-brand-500">Контакты</p>
+    <h2 id="contact-modal-title" class="mt-3 text-2xl font-semibold text-slate-900 md:text-3xl">
+      {contact.title}
+    </h2>
+    <p class="mt-3 text-sm leading-6 text-slate-600 md:text-base">{contact.description}</p>
+
+    <div class="mt-6 grid gap-3">
+      <a
+        href={contact.phoneHref}
+        class="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-500 px-5 py-3 text-center font-semibold text-white transition hover:bg-brand-600"
+      >
+        <LucideIcon name="phone-call" className="h-4 w-4" />
+        Позвонить: {contact.phoneDisplay}
+      </a>
+      <a
+        href={contact.telegramHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center gap-2 rounded-xl border border-sky-400 bg-sky-50 px-5 py-3 text-center font-semibold text-sky-700 transition hover:border-sky-500 hover:bg-sky-100"
+      >
+        <LucideIcon name="send" className="h-4 w-4" />
+        Написать в Telegram
+      </a>
+      <a
+        href={contact.maxHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-slate-50 px-5 py-3 text-center font-semibold text-slate-800 transition hover:border-slate-400 hover:bg-slate-100"
+      >
+        <LucideIcon name="messages-square" className="h-4 w-4" />
+        Написать в MAX
+      </a>
+    </div>
+  </div>
+</div>

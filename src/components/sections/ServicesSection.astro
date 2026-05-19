@@ -21,7 +21,11 @@ const { items } = Astro.props;
           <img src={item.image} alt={item.title} class="h-48 w-full rounded-2xl object-cover" loading="lazy" />
           <h3 class="mt-4 text-xl font-semibold">{item.title}</h3>
           <p class="mt-2 text-sm text-slate-600">{item.text}</p>
-          <button type="button" class="mt-4 w-full rounded-xl bg-brand-500 px-4 py-3 font-semibold text-white hover:bg-brand-600">
+          <button
+            type="button"
+            data-contact-modal-trigger
+            class="mt-4 w-full rounded-xl bg-brand-500 px-4 py-3 font-semibold text-white hover:bg-brand-600"
+          >
             Оставить заявку
           </button>
         </article>

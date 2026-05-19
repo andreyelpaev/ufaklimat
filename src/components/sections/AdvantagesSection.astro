@@ -1,4 +1,5 @@
 ---
+import LucideIcon from '../LucideIcon.astro';
 import SectionHeading from '../SectionHeading.astro';
 import type { AdvantageItem } from '../../data/site';
 
@@ -15,7 +16,9 @@ const { items } = Astro.props;
     <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {items.map((item) => (
         <article data-reveal class="rounded-2xl border border-slate-200 bg-white p-5 shadow-soft">
-          <img src={item.image} alt={item.title} class="h-14 w-14" loading="lazy" />
+          <div class="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-50 text-brand-600">
+            <LucideIcon name={item.icon} className="h-7 w-7" />
+          </div>
           <h3 class="mt-4 text-lg font-semibold">{item.title}</h3>
           <p class="mt-2 text-sm text-slate-600">{item.text}</p>
         </article>

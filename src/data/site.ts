@@ -1,4 +1,9 @@
 import logo from '../assets/logo.webp';
+import centekAirLogo from '../assets/centek-air-logo.png';
+import centekCassetteSystems from '../assets/centek-cassette-systems.png';
+import centekDuctSystems from '../assets/centek-duct-systems.png';
+import centekFloorCeilingSystems from '../assets/centek-floor-ceiling-systems.png';
+import centekSplitSystems from '../assets/centek-split-systems.jpg';
 import portfolioAirPurifier01 from '../assets/portfolio-air-purifier-01.jpg';
 import portfolioBracketLevel01 from '../assets/portfolio-bracket-level-01.jpg';
 import portfolioFanCleaning01 from '../assets/portfolio-fan-cleaning-01.jpg';
@@ -33,9 +38,10 @@ export interface ServiceItem {
 
 export interface ProductItem {
   name: string;
-  current: string;
-  old: string;
+  description: string;
+  details: string;
   image: string;
+  href: string;
 }
 
 export interface ReviewItem {
@@ -49,7 +55,7 @@ export interface ReviewItem {
 export interface AdvantageItem {
   title: string;
   text: string;
-  image: string;
+  icon: 'badge-percent' | 'zap' | 'shield-check' | 'wallet' | 'file-check' | 'wrench';
 }
 
 export interface FaqItem {
@@ -69,7 +75,24 @@ export interface ContactLink {
 }
 
 export interface SocialLink extends ContactLink {
-  icon: string;
+  icon?: 'send' | 'messages-square';
+  shortLabel?: string;
+}
+
+export interface BrandItem {
+  name: string;
+  accent?: string;
+  note?: string;
+  logo?: string;
+}
+
+export interface ContactModalData {
+  title: string;
+  description: string;
+  phoneDisplay: string;
+  phoneHref: string;
+  telegramHref: string;
+  maxHref: string;
 }
 
 export const externalSite = 'https://landing-magazin.ru/uslugi/stroyka/konder-6';
@@ -102,18 +125,28 @@ export const companyInfo = {
 };
 
 export const messengerLinks: ContactLink[] = [
-  { label: 'Telegram', href: 'https://api.whatsapp.com/send?phone=79000000000' },
-  { label: 'MAX', href: 'https://telegram.me/telegram_user_name' },
+  { label: 'Telegram', href: 'https://telegram.me/telegram_user_name' },
+  { label: 'MAX', href: '#' },
 ];
+
+export const contactModal: ContactModalData = {
+  title: 'Свяжитесь с нами удобным способом',
+  description: 'Откроем диалог по телефону, в Telegram или MAX и быстро подскажем по подбору, монтажу и стоимости.',
+  phoneDisplay: companyInfo.phoneDisplay,
+  phoneHref: companyInfo.phoneHref,
+  telegramHref: 'https://telegram.me/telegram_user_name',
+  maxHref: '#',
+};
 
 export const hero = {
   eyebrow: 'Подбор • Монтаж • Гарантия',
-  accent: 'Подберем и установим кондиционер за 3 часа',
+  accent: 'Установим любой кондиционер',
+  accentHighlight: 'за 3 часа',
   title: 'в квартире, доме или офисе',
   ctaLabel: 'Подобрать кондиционер',
   ctaHref: '#quiz',
-  backgroundImage: asset('content/uploads/2025/05/1234.jpg'),
-  sideImage: asset('content/uploads/2025/05/234.jpg'),
+  backgroundImage: portfolioServiceFreon01.src,
+  sideImage: portfolioIndoorUnitOpen01.src,
   highlights: [
     'Бесплатный выезд мастера',
     'Мастера с опытом от 15 лет',
@@ -139,106 +172,134 @@ export const services: ServiceItem[] = [
   },
 ];
 
-export const products: ProductItem[] = Array.from({ length: 8 }, (_, i) => ({
-  name: `Умная сплит-система Rapid RAM-0${i + 1}`,
-  current: '17 999 ₽',
-  old: '20 999 ₽',
-  image: asset(`content/uploads/2025/05/tovar-${i + 1}.jpg`),
-}));
+export const products: ProductItem[] = [
+  {
+    name: 'Сплит-системы',
+    description:
+      'Настенные сплит-системы Centek Air для квартир, домов и помещений разной площади: от небольших комнат до более крупных зон.',
+    details: 'Серии ADC, BDC, CDC, EDC, FDC, MDC, SDC, RDC и другие.',
+    image: centekSplitSystems.src,
+    href: 'https://centek-air.ru/split-sistemy',
+  },
+  {
+    name: 'Кассетные',
+    description:
+      'Полупромышленные кассетные системы мощностью от 12 до 60 кБТЕ с подмесом свежего воздуха, дренажной помпой и работой на обогрев до -15 °С.',
+    details: 'Японские компрессоры Toshiba/GMCC и Hitachi/Highly, гарантия 3 года.',
+    image: centekCassetteSystems.src,
+    href: 'https://centek-air.ru/kassetnye',
+  },
+  {
+    name: 'Напольно-потолочные',
+    description:
+      'Полупромышленная линейка мощностью от 18 000 до 60 000 БТЕ для объектов, где важен гибкий монтаж и уверенная работа на больших площадях.',
+    details: 'Есть Full DC inverter в CT-66X60; компрессоры Gree, Toshiba и Hitachi; гарантия 3 года.',
+    image: centekFloorCeilingSystems.src,
+    href: 'https://centek-air.ru/napolno-potolochnye',
+  },
+  {
+    name: 'Канальные',
+    description:
+      'Средненапорные и высоконапорные канальные системы Centek Air для скрытого монтажа и распределения воздуха по нескольким зонам.',
+    details: 'Статическое давление до 80 Па и до 196 Па, проводные пульты, подмес свежего воздуха, работа до -15 °С.',
+    image: centekDuctSystems.src,
+    href: 'https://centek-air.ru/katalog/kanalnye',
+  },
+];
 
-export const partnerLogos = ['22', '23', '24', '25', '26', '27', '28'].map((id) =>
-  asset(`content/uploads/2025/05/image-${id}.jpg`),
-);
+export const partnerBrands: BrandItem[] = [
+  {
+    name: 'CENTEK',
+    accent: 'AIR',
+    note: 'Centek Air — наш партнер по поставкам климатической техники для бытовых и полупромышленных решений.',
+    logo: centekAirLogo.src,
+  },
+];
 
 export const priceLead = {
-  backgroundImage: asset('content/uploads/2025/05/12123.jpg'),
-  previewImage: asset('content/uploads/2025/05/price-1.png'),
+  backgroundImage: portfolioOutdoorFreonCheck02.src,
+  previewImage: centekAirLogo.src,
 };
 
-export const certificates = [1, 4, 3, 2].map((id) =>
-  asset(`content/uploads/2022/10/certificates-${id}.jpg`),
-);
+export const certificates = [
+  centekSplitSystems.src,
+  centekCassetteSystems.src,
+  centekFloorCeilingSystems.src,
+  centekDuctSystems.src,
+];
 
 export const portfolio = [
-  portfolioOutdoorInstall01.src,
   portfolioOutdoorInstall02.src,
   portfolioIndoorCoveredUnit01.src,
-  portfolioServiceFreon01.src,
   portfolioWallPassThrough01.src,
   portfolioBracketLevel01.src,
-  portfolioIndoorUnitOpen01.src,
   portfolioOutdoorServiceHeight01.src,
   portfolioOutdoorFreonCheck01.src,
   portfolioOutdoorInstallLorot01.src,
   portfolioOutdoorFreonCheck02.src,
-  portfolioIndoorUnitWall01.src,
   portfolioIndoorInstallWindow01.src,
-  portfolioServiceLadder01.src,
   portfolioAirPurifier01.src,
   portfolioOutdoorUnitGround01.src,
-  portfolioServiceHeight02.src,
   portfolioManifoldGauges01.src,
-  portfolioServiceHeight03.src,
   portfolioFanCleaning01.src,
+  portfolioServiceHeight02.src,
+  portfolioServiceHeight03.src,
 ];
 
 export const reviews: ReviewItem[] = [
   {
     name: 'Андрей Сиванов',
     city: 'Москва',
-    avatar: asset('content/uploads/2022/10/review-person.jpg'),
-    photos: [
-      asset('content/uploads/2025/05/montazh-gree.jpg'),
-      asset('content/uploads/2025/05/ustanovka-konditsionerov-gree.jpg'),
-    ],
+    avatar: centekAirLogo.src,
+    photos: [portfolioOutdoorInstall02.src, portfolioIndoorInstallWindow01.src],
     text: 'Мы недавно купили квартиру, сделали свежий ремонт. Очень переживали за аккуратность монтажа, но команда сработала чисто и спокойно. Никакой грязи не оставили, всё сделали профессионально.',
   },
   {
     name: 'Игорь Никифоров',
     city: 'Москва',
-    avatar: asset('content/uploads/2022/10/review-person.jpg'),
-    photos: [asset('content/uploads/2025/05/kondicioner.jpg')],
+    avatar: centekAirLogo.src,
+    photos: [portfolioOutdoorFreonCheck01.src],
     text: 'Подобрали модель под мой бюджет, приехали в согласованное время и закрыли монтаж за один день. Понравилась прозрачная смета и что стоимость не изменилась в процессе.',
   },
 ];
 
 export const consultationLead = {
-  backgroundImage: asset('content/uploads/2025/05/12123.jpg'),
-  masterImage: asset('content/uploads/2022/11/122.png'),
-  masterName: 'Артем Лошиневич',
-  masterRole: 'Старший мастер',
+  backgroundImage: portfolioServiceLadder01.src,
+  masterImage: portfolioServiceHeight03.src,
+  masterName: 'Монтажная команда Centek Air',
+  masterRole: 'Подбор, монтаж и сервис',
 };
 
 export const advantages: AdvantageItem[] = [
   {
     title: 'Фиксированная стоимость',
     text: 'Наши цены не меняются в процессе работ.',
-    image: asset('content/uploads/2025/05/icons8-czena-80.png'),
+    icon: 'badge-percent',
   },
   {
     title: 'Оперативность и скорость',
     text: 'Все работы проходят быстро и эффективно.',
-    image: asset('content/uploads/2025/05/icons8-skorost-100.png'),
+    icon: 'zap',
   },
   {
     title: 'Контроль качества',
     text: 'Монтаж выполняется строго по чек-листу.',
-    image: asset('content/uploads/2025/05/icons8-vysokoe-kachestvo-100.png'),
+    icon: 'shield-check',
   },
   {
     title: 'Оплата по факту',
     text: 'Оплачиваете после завершения работ.',
-    image: asset('content/uploads/2025/05/icons8-oplata-100.png'),
+    icon: 'wallet',
   },
   {
     title: 'Гарантия в договоре',
     text: 'До 2 лет на работы и до 10 лет на оборудование.',
-    image: asset('content/uploads/2025/05/icons8-garantiya-100-1.png'),
+    icon: 'file-check',
   },
   {
     title: 'Качественные материалы',
     text: 'Используем только проверенных производителей.',
-    image: asset('content/uploads/2025/05/icons8-garantiya-100.png'),
+    icon: 'wrench',
   },
 ];
 
@@ -278,21 +339,21 @@ export const promotions: PromotionItem[] = [
   {
     title: 'Установка в подарок!',
     text: 'При покупке кондиционера от 30 000 ₽ монтаж бесплатно.',
-    image: asset('content/uploads/2025/05/rectangle-891.png'),
+    image: centekCassetteSystems.src,
   },
   {
     title: 'Трейд-ин: старый на новый',
     text: 'Обновите технику на выгодных условиях.',
-    image: asset('content/uploads/2025/05/group-474.png'),
+    image: centekDuctSystems.src,
   },
 ];
 
 export const contactsCard = {
   requisitesUrl: asset('content/uploads/2025/05/file.pdf'),
   officePhotos: [
-    asset('content/uploads/2025/05/1-1-min-1.jpg'),
-    asset('content/uploads/2025/05/l_height.webp'),
-    asset('content/uploads/2025/05/05-12-19-1.jpg'),
+    portfolioIndoorUnitWall01.src,
+    portfolioIndoorInstallWindow01.src,
+    portfolioAirPurifier01.src,
   ],
   mapEmbedUrl:
     'https://yandex.ru/maps/?um=constructor%3A11ded686571788a435c6b106f12019495e37b98d1ce7bb4412dfa995a84dd8d6&source=constructorLink',
@@ -300,12 +361,14 @@ export const contactsCard = {
     {
       label: 'Telegram',
       href: 'https://telegram.me/telegram_user_name',
-      icon: asset('content/uploads/2022/11/telegram.png'),
+      icon: 'send',
+      shortLabel: 'TG',
     },
     {
       label: 'MAX',
       href: '#',
-      icon: asset('content/uploads/2022/11/vk.png'),
+      icon: 'messages-square',
+      shortLabel: 'MX',
     },
   ] satisfies SocialLink[],
 };

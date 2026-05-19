@@ -131,7 +131,7 @@ export const messengerLinks: ContactLink[] = [
 
 export const contactModal: ContactModalData = {
   title: 'Свяжитесь с нами удобным способом',
-  description: 'Откроем диалог по телефону, в Telegram или MAX и быстро подскажем по подбору, монтажу и стоимости.',
+  description: 'В Telegram или MAX и быстро подскажем по подбору, монтажу и стоимости.',
   phoneDisplay: companyInfo.phoneDisplay,
   phoneHref: companyInfo.phoneHref,
   telegramHref: 'https://telegram.me/telegram_user_name',

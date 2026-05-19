@@ -356,19 +356,19 @@ export const contactsCard = {
     portfolioAirPurifier01.src,
   ],
   mapEmbedUrl:
-    'https://yandex.ru/maps/?um=constructor%3A11ded686571788a435c6b106f12019495e37b98d1ce7bb4412dfa995a84dd8d6&source=constructorLink',
+    'https://yandex.ru/maps/?um=constructor%3A6a20313bdf362764ab5985f7fa098387242a81707e96920138cddbcd2ce99727&source=constructorLink&apiKey=2f880129-eaeb-4da8-80f4-5ccfc443420e\n',
   socialLinks: [
     {
       label: 'Telegram',
       href: 'https://telegram.me/telegram_user_name',
       icon: 'send',
-      shortLabel: 'TG',
+      shortLabel: 'Telegram',
     },
     {
       label: 'MAX',
       href: '#',
       icon: 'messages-square',
-      shortLabel: 'MX',
+      shortLabel: 'MAX',
     },
   ] satisfies SocialLink[],
 };

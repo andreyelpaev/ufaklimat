@@ -4,7 +4,6 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   output: 'static',
-  base: 'ufaklimat',
-  site: 'https://andreyelpaev.github.io',
+  site: 'https://ufa-klimat.ru',
   integrations: [tailwind(), mdx()],
 });

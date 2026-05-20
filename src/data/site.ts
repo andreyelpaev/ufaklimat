@@ -101,7 +101,7 @@ export const externalSite = 'https://landing-magazin.ru/uslugi/stroyka/konder-6'
 export const asset = (path: string) => `${externalSite}/${path}`;
 
 export const siteMeta = {
-  title: 'Установка кондиционеров',
+  title: 'УфаКлимат - установка кондиционеров в Уфе и Башкортостане',
 };
 
 export const menu: MenuItem[] = [

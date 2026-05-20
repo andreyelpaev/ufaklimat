@@ -125,7 +125,7 @@ export const companyInfo = {
 };
 
 export const messengerLinks: ContactLink[] = [
-  { label: 'Telegram', href: 'https://telegram.me/telegram_user_name' },
+  { label: 'Telegram', href: 'https://ttttt.me/ufaklimat02' },
   { label: 'MAX', href: 'https://max.ru/u/f9LHodD0cOJPU0NNALEOi6IAuL-oe3LjqmXgO_bAI413yFEMCJpP-r332y8' },
 ];
 
@@ -134,7 +134,7 @@ export const contactModal: ContactModalData = {
   description: 'В Telegram или MAX и быстро подскажем по подбору, монтажу и стоимости.',
   phoneDisplay: companyInfo.phoneDisplay,
   phoneHref: companyInfo.phoneHref,
-  telegramHref: 'https://telegram.me/telegram_user_name',
+  telegramHref: 'https://ttttt.me/ufaklimat02',
   maxHref: 'https://max.ru/u/f9LHodD0cOJPU0NNALEOi6IAuL-oe3LjqmXgO_bAI413yFEMCJpP-r332y8',
 };
 
@@ -361,7 +361,7 @@ export const contactsCard = {
   socialLinks: [
     {
       label: 'Telegram',
-      href: 'https://telegram.me/telegram_user_name',
+      href: 'https://ttttt.me/ufaklimat02',
       icon: 'send',
       shortLabel: 'Telegram',
     },

@@ -121,14 +121,12 @@ export const companyInfo = {
   hours: '24/7',
   phoneDisplay: '+7 (987) 587-20-23',
   phoneHref: 'tel:+79875872023',
-  email: 'info@ufa-klimat.ru',
-  inn: '000000000',
-  ogrn: '00000000000',
+  email: 'ufa-klimat@bk.ru',
 };
 
 export const messengerLinks: ContactLink[] = [
   { label: 'Telegram', href: 'https://telegram.me/telegram_user_name' },
-  { label: 'MAX', href: '#' },
+  { label: 'MAX', href: 'https://max.ru/u/f9LHodD0cOJPU0NNALEOi6IAuL-oe3LjqmXgO_bAI413yFEMCJpP-r332y8' },
 ];
 
 export const contactModal: ContactModalData = {
@@ -137,7 +135,7 @@ export const contactModal: ContactModalData = {
   phoneDisplay: companyInfo.phoneDisplay,
   phoneHref: companyInfo.phoneHref,
   telegramHref: 'https://telegram.me/telegram_user_name',
-  maxHref: '#',
+  maxHref: 'https://max.ru/u/f9LHodD0cOJPU0NNALEOi6IAuL-oe3LjqmXgO_bAI413yFEMCJpP-r332y8',
 };
 
 export const hero = {
@@ -353,7 +351,6 @@ export const promotions: PromotionItem[] = [
 ];
 
 export const contactsCard = {
-  requisitesUrl: asset('content/uploads/2025/05/file.pdf'),
   officePhotos: [
     portfolioIndoorUnitWall01.src,
     portfolioIndoorInstallWindow01.src,
@@ -370,7 +367,7 @@ export const contactsCard = {
     },
     {
       label: 'MAX',
-      href: '#',
+      href: 'https://max.ru/u/f9LHodD0cOJPU0NNALEOi6IAuL-oe3LjqmXgO_bAI413yFEMCJpP-r332y8',
       icon: 'messages-square',
       shortLabel: 'MAX',
     },

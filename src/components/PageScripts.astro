@@ -5,6 +5,15 @@
   const contactModal = document.getElementById('contact-modal');
   const contactTriggers = document.querySelectorAll('[data-contact-modal-trigger]');
   const contactModalClosers = document.querySelectorAll('[data-contact-modal-close]');
+  const imageViewer = document.getElementById('image-viewer');
+  const imageViewerImg = document.getElementById('image-viewer-img');
+  const imageViewerCount = document.getElementById('image-viewer-count');
+  const imageViewerTriggers = Array.from(document.querySelectorAll('[data-image-viewer-trigger]'));
+  const imageViewerClosers = document.querySelectorAll('[data-image-viewer-close]');
+  const imageViewerPrev = document.querySelector('[data-image-viewer-prev]');
+  const imageViewerNext = document.querySelector('[data-image-viewer-next]');
+  let activeImageIndex = 0;
+  let imageViewerTouchStartX = 0;
 
   const openContactModal = () => {
     if (!contactModal) return;
@@ -22,6 +31,41 @@
     document.body.classList.remove('overflow-hidden');
   };
 
+  const setImageViewerImage = (index) => {
+    if (!imageViewerImg || !imageViewerTriggers.length) return;
+
+    activeImageIndex = (index + imageViewerTriggers.length) % imageViewerTriggers.length;
+    const trigger = imageViewerTriggers[activeImageIndex];
+    const src = trigger.getAttribute('data-image-src') || '';
+    const alt = trigger.getAttribute('data-image-alt') || '';
+
+    imageViewerImg.setAttribute('src', src);
+    imageViewerImg.setAttribute('alt', alt);
+    if (imageViewerCount) {
+      imageViewerCount.textContent = `${activeImageIndex + 1} / ${imageViewerTriggers.length}`;
+    }
+  };
+
+  const openImageViewer = (index) => {
+    if (!imageViewer || !imageViewerImg) return;
+    setImageViewerImage(index);
+    imageViewer.classList.remove('hidden');
+    imageViewer.classList.add('flex');
+    imageViewer.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('overflow-hidden');
+  };
+
+  const closeImageViewer = () => {
+    if (!imageViewer || !imageViewerImg) return;
+    imageViewer.classList.add('hidden');
+    imageViewer.classList.remove('flex');
+    imageViewer.setAttribute('aria-hidden', 'true');
+    imageViewerImg.setAttribute('src', '');
+    document.body.classList.remove('overflow-hidden');
+  };
+
+  const isImageViewerOpen = () => imageViewer?.getAttribute('aria-hidden') === 'false';
+
   contactTriggers.forEach((trigger) => {
     trigger.addEventListener('click', (event) => {
       event.preventDefault();
@@ -31,6 +75,32 @@
 
   contactModalClosers.forEach((closer) => {
     closer.addEventListener('click', closeContactModal);
+  });
+
+  imageViewerTriggers.forEach((trigger, index) => {
+    trigger.addEventListener('click', () => {
+      const imageIndex = Number(trigger.getAttribute('data-image-index') || index);
+      openImageViewer(imageIndex);
+    });
+  });
+
+  imageViewerClosers.forEach((closer) => {
+    closer.addEventListener('click', closeImageViewer);
+  });
+
+  imageViewerPrev?.addEventListener('click', () => setImageViewerImage(activeImageIndex - 1));
+  imageViewerNext?.addEventListener('click', () => setImageViewerImage(activeImageIndex + 1));
+
+  imageViewer?.addEventListener('touchstart', (event) => {
+    imageViewerTouchStartX = event.changedTouches[0]?.clientX || 0;
+  });
+
+  imageViewer?.addEventListener('touchend', (event) => {
+    const touchEndX = event.changedTouches[0]?.clientX || 0;
+    const swipeDistance = touchEndX - imageViewerTouchStartX;
+
+    if (Math.abs(swipeDistance) < 50) return;
+    setImageViewerImage(activeImageIndex + (swipeDistance > 0 ? -1 : 1));
   });
 
   menuToggle?.addEventListener('click', () => {
@@ -89,6 +159,14 @@
   if (year) year.textContent = String(new Date().getFullYear());
 
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') closeContactModal();
+    if (event.key === 'Escape') {
+      closeContactModal();
+      closeImageViewer();
+    }
+
+    if (!isImageViewerOpen()) return;
+
+    if (event.key === 'ArrowLeft') setImageViewerImage(activeImageIndex - 1);
+    if (event.key === 'ArrowRight') setImageViewerImage(activeImageIndex + 1);
   });
 </script>

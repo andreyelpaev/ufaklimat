@@ -11,12 +11,12 @@ const { brands } = Astro.props;
 
 <section class="py-16" id="partners">
   <div class="site-container">
-    <SectionHeading accent="Предлагаем оптовые цены" title="на кондиционеры Centek Air" />
-    <div class="mx-auto mt-8 max-w-3xl">
+    <SectionHeading accent="Предлагаем оптовые цены" title="на кондиционеры наших партнеров" />
+    <div class="mx-auto mt-8 grid max-w-5xl gap-4 md:grid-cols-2">
       {brands.map((brand) => (
         <article
           data-reveal
-          class="rounded-[2rem] border border-slate-200 bg-white px-8 py-10 text-center shadow-soft"
+          class="flex min-h-64 flex-col items-center justify-center rounded-[2rem] border border-slate-200 bg-white px-8 py-10 text-center shadow-soft"
         >
           {brand.logo ? (
             <img
@@ -27,7 +27,7 @@ const { brands } = Astro.props;
             />
           ) : (
             <div class="inline-flex flex-col items-center">
-              <span class="text-4xl font-extrabold tracking-[0.3em] text-slate-900 md:text-5xl">
+              <span class="text-4xl font-extrabold text-slate-900 md:text-5xl">
                 {brand.name}
               </span>
               {brand.accent && (

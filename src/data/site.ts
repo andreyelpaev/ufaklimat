@@ -101,7 +101,7 @@ export const externalSite = 'https://landing-magazin.ru/uslugi/stroyka/konder-6'
 export const asset = (path: string) => `${externalSite}/${path}`;
 
 export const siteMeta = {
-  title: 'УфаКлимат - установка кондиционеров в Уфе и Башкортостане',
+  title: 'УфаКлимат - кондиционеры Centek Air и Haier в Уфе',
 };
 
 export const menu: MenuItem[] = [
@@ -139,7 +139,7 @@ export const contactModal: ContactModalData = {
 };
 
 export const hero = {
-  eyebrow: 'Подбор • Монтаж • Гарантия',
+  eyebrow: 'Подбор • Монтаж • Сервис',
   accent: 'Установим любой кондиционер',
   accentHighlight: 'за 3 часа',
   title: 'в квартире, доме или офисе',
@@ -157,17 +157,17 @@ export const hero = {
 export const services: ServiceItem[] = [
   {
     title: 'Подбор и продажа',
-    text: 'В наличии на складе более 700+ моделей кондиционеров под разный бюджет.',
+    text: 'Подбираем модели Centek Air и Haier под площадь, бюджет и условия монтажа.',
     image: portfolioIndoorUnitWall01.src,
   },
   {
     title: 'Монтаж кондиционеров',
-    text: 'Приедем к вам на объект и смонтируем кондиционер за 1 день с гарантией 2 года.',
+    text: 'Приедем на объект и установим сплит-систему или полупромышленное решение с гарантией 2 года.',
     image: portfolioOutdoorInstall01.src,
   },
   {
     title: 'Ремонт кондиционеров',
-    text: 'Оказываем полный комплекс услуг по ремонту и восстановлению кондиционеров.',
+    text: 'Обслуживаем и ремонтируем бытовые и полупромышленные кондиционеры популярных брендов.',
     image: portfolioServiceFreon01.src,
   },
 ];
@@ -176,32 +176,32 @@ export const products: ProductItem[] = [
   {
     name: 'Сплит-системы',
     description:
-      'Настенные сплит-системы Centek Air для квартир, домов и помещений разной площади: от небольших комнат до более крупных зон.',
-    details: 'Серии ADC, BDC, CDC, EDC, FDC, MDC, SDC, RDC и другие.',
+      'Настенные сплит-системы Centek Air и Haier для квартир, домов и офисов: от небольших комнат до просторных зон.',
+    details: 'Подберем инверторную или классическую модель по площади, шуму, энергоэффективности и бюджету.',
     image: centekSplitSystems.src,
     href: 'https://centek-air.ru/split-sistemy',
   },
   {
     name: 'Кассетные',
     description:
-      'Полупромышленные кассетные системы мощностью от 12 до 60 кБТЕ с подмесом свежего воздуха, дренажной помпой и работой на обогрев до -15 °С.',
-    details: 'Японские компрессоры Toshiba/GMCC и Hitachi/Highly, гарантия 3 года.',
+      'Кассетные системы Centek Air и Haier для офисов, торговых залов, кафе и помещений с подвесным потолком.',
+    details: 'Рассчитаем мощность, схему отвода конденсата, трассы и удобное размещение внутреннего блока.',
     image: centekCassetteSystems.src,
     href: 'https://centek-air.ru/kassetnye',
   },
   {
     name: 'Напольно-потолочные',
     description:
-      'Полупромышленная линейка мощностью от 18 000 до 60 000 БТЕ для объектов, где важен гибкий монтаж и уверенная работа на больших площадях.',
-    details: 'Есть Full DC inverter в CT-66X60; компрессоры Gree, Toshiba и Hitachi; гарантия 3 года.',
+      'Напольно-потолочные решения для помещений, где обычный настенный блок не подходит по планировке или потоку воздуха.',
+    details: 'Подберем оборудование Centek Air или Haier под площадь, высоту потолков и режим работы объекта.',
     image: centekFloorCeilingSystems.src,
     href: 'https://centek-air.ru/napolno-potolochnye',
   },
   {
     name: 'Канальные',
     description:
-      'Средненапорные и высоконапорные канальные системы Centek Air для скрытого монтажа и распределения воздуха по нескольким зонам.',
-    details: 'Статическое давление до 80 Па и до 196 Па, проводные пульты, подмес свежего воздуха, работа до -15 °С.',
+      'Канальные системы Centek Air и Haier для скрытого монтажа и распределения воздуха по нескольким зонам.',
+    details: 'Продумываем воздуховоды, сервисный доступ, дренаж, автоматику и аккуратную интеграцию в интерьер.',
     image: centekDuctSystems.src,
     href: 'https://centek-air.ru/katalog/kanalnye',
   },
@@ -211,8 +211,12 @@ export const partnerBrands: BrandItem[] = [
   {
     name: 'CENTEK',
     accent: 'AIR',
-    note: 'Centek Air — наш партнер по поставкам климатической техники для бытовых и полупромышленных решений.',
+    note: 'Centek Air — практичные бытовые и полупромышленные решения для квартир, домов и коммерческих объектов.',
     logo: centekAirLogo.src,
+  },
+  {
+    name: 'Haier',
+    note: 'Haier — надежная климатическая техника с широким выбором моделей для дома, офиса и бизнеса.',
   },
 ];
 
@@ -268,8 +272,8 @@ export const reviews: ReviewItem[] = [
 export const consultationLead = {
   backgroundImage: portfolioServiceLadder01.src,
   masterImage: portfolioServiceHeight03.src,
-  masterName: 'Монтажная команда Centek Air',
-  masterRole: 'Подбор, монтаж и сервис',
+  masterName: 'Монтажная команда УфаКлимат',
+  masterRole: 'Centek Air, Haier, подбор и сервис',
 };
 
 export const advantages: AdvantageItem[] = [
@@ -295,12 +299,12 @@ export const advantages: AdvantageItem[] = [
   },
   {
     title: 'Гарантия в договоре',
-    text: 'До 2 лет на работы и до 10 лет на оборудование.',
+    text: 'Гарантия на монтаж и официальная гарантия на оборудование.',
     icon: 'file-check',
   },
   {
     title: 'Качественные материалы',
-    text: 'Используем только проверенных производителей.',
+    text: 'Используем проверенные материалы и оборудование Centek Air и Haier.',
     icon: 'wrench',
   },
 ];
@@ -313,7 +317,7 @@ export const faq: FaqItem[] = [
   { q: 'Сколько времени занимает установка?', a: 'В среднем 2–4 часа, если не требуется сложная трасса.' },
   {
     q: 'Какие гарантии вы даете?',
-    a: 'На оборудование 1–3 года (в зависимости от бренда), на монтаж — 2 года.',
+    a: 'На оборудование действует гарантия производителя Centek Air или Haier, на монтажные работы — 2 года.',
   },
   {
     q: 'Делаете ли скрытый монтаж?',

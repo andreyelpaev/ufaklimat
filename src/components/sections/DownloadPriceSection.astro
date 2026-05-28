@@ -16,9 +16,12 @@ const { backgroundImage, previewImage } = Astro.props;
       <div class="mx-auto flex h-16 min-w-16 items-center justify-center rounded-2xl bg-white/10 px-4 text-xs font-semibold uppercase tracking-[0.24em] text-slate-200">
         3 варианта
       </div>
-      <img src={previewImage} alt="Прайс" class="mx-auto mt-6 w-56 md:w-64" loading="lazy" />
+      <div class="mt-6 flex flex-col items-center gap-3">
+        <img src={previewImage} alt="Centek Air" class="w-56 md:w-64" loading="lazy" />
+        <span class="text-4xl font-extrabold text-white md:text-5xl">Haier</span>
+      </div>
       <div class="mt-6 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm leading-6 text-slate-200">
-        Эконом, оптимум и усиленный вариант с понятной разницей по цене, технике и монтажу.
+        Эконом, оптимум и усиленный вариант с понятной разницей по бренду, технике и монтажу.
       </div>
     </div>
     <div data-reveal>
@@ -27,7 +30,7 @@ const { backgroundImage, previewImage } = Astro.props;
         <span class="block mt-2 accent-underline">под ваш объект за 15 минут</span>
       </h2>
       <p class="mt-4 max-w-xl text-base leading-7 text-slate-300">
-        Вместо абстрактного прайса сразу предложим три рабочих сценария: эконом, оптимум и усиленный вариант под ваш бюджет и условия монтажа.
+        Вместо абстрактного прайса предложим три рабочих сценария на базе Centek Air и Haier: эконом, оптимум и усиленный вариант под ваш бюджет и условия монтажа.
       </p>
         <button
           type="button"

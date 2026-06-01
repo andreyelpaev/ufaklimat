@@ -1,5 +1,4 @@
 import logo from '../assets/logo.webp';
-import centekAirLogo from '../assets/centek-air-logo.png';
 import centekCassetteSystems from '../assets/centek-cassette-systems.png';
 import centekDuctSystems from '../assets/centek-duct-systems.png';
 import centekFloorCeilingSystems from '../assets/centek-floor-ceiling-systems.png';
@@ -93,6 +92,7 @@ export interface ContactModalData {
   description: string;
   phoneDisplay: string;
   phoneHref: string;
+  whatsappHref: string;
   telegramHref: string;
   maxHref: string;
 }
@@ -101,7 +101,7 @@ export const externalSite = 'https://landing-magazin.ru/uslugi/stroyka/konder-6'
 export const asset = (path: string) => `${externalSite}/${path}`;
 
 export const siteMeta = {
-  title: 'УфаКлимат - кондиционеры Centek Air и Haier в Уфе',
+  title: 'УфаКлимат - установка и ремонт кондиционеров в Уфе',
 };
 
 export const menu: MenuItem[] = [
@@ -121,54 +121,57 @@ export const companyInfo = {
   hours: '24/7',
   phoneDisplay: '+7 (987) 587-20-23',
   phoneHref: 'tel:+79875872023',
+  whatsappHref: 'https://wa.me/79875872023',
   email: 'ufa-klimat@bk.ru',
 };
 
 export const messengerLinks: ContactLink[] = [
+  { label: 'WhatsApp', href: companyInfo.whatsappHref },
   { label: 'Telegram', href: 'https://ttttt.me/ufaklimat02' },
   { label: 'MAX', href: 'https://max.ru/u/f9LHodD0cOJPU0NNALEOi6IAuL-oe3LjqmXgO_bAI413yFEMCJpP-r332y8' },
 ];
 
 export const contactModal: ContactModalData = {
   title: 'Свяжитесь с нами удобным способом',
-  description: 'В Telegram или MAX и быстро подскажем по подбору, монтажу и стоимости.',
+  description: 'В WhatsApp, Telegram или MAX быстро подскажем по подбору, монтажу и стоимости.',
   phoneDisplay: companyInfo.phoneDisplay,
   phoneHref: companyInfo.phoneHref,
+  whatsappHref: companyInfo.whatsappHref,
   telegramHref: 'https://ttttt.me/ufaklimat02',
   maxHref: 'https://max.ru/u/f9LHodD0cOJPU0NNALEOi6IAuL-oe3LjqmXgO_bAI413yFEMCJpP-r332y8',
 };
 
 export const hero = {
   eyebrow: 'Подбор • Монтаж • Сервис',
-  accent: 'Установим любой кондиционер',
-  accentHighlight: 'за 3 часа',
-  title: 'в квартире, доме или офисе',
-  ctaLabel: 'Подобрать кондиционер',
+  accent: 'Монтаж кондиционеров',
+  accentHighlight: 'от 5 000 ₽',
+  title: 'ремонт от 1 000 ₽',
+  ctaLabel: 'Позвонить и узнать смету',
   ctaHref: '#quiz',
   backgroundImage: portfolioServiceFreon01.src,
   sideImage: portfolioIndoorUnitOpen01.src,
   highlights: [
     'Бесплатный выезд мастера',
     'Мастера с опытом от 15 лет',
-    'Доставка и монтаж за 1 день',
+    'Установка, сервис и ремонт любых брендов',
   ],
 };
 
 export const services: ServiceItem[] = [
   {
     title: 'Подбор и продажа',
-    text: 'Подбираем модели Centek Air и Haier под площадь, бюджет и условия монтажа.',
+    text: 'Подбираем кондиционер под площадь, бюджет и условия монтажа: от бытовой сплит-системы до решения для бизнеса.',
     image: portfolioIndoorUnitWall01.src,
   },
   {
     title: 'Монтаж кондиционеров',
-    text: 'Приедем на объект и установим сплит-систему или полупромышленное решение с гарантией 2 года.',
+    text: 'Установим сплит-систему от 5 000 ₽: аккуратная трасса, вакуумирование, запуск и гарантия 2 года.',
     image: portfolioOutdoorInstall01.src,
   },
   {
     title: 'Ремонт кондиционеров',
-    text: 'Обслуживаем и ремонтируем бытовые и полупромышленные кондиционеры популярных брендов.',
-    image: portfolioServiceFreon01.src,
+    text: 'Ремонт от 1 000 ₽: быстро определим причину, согласуем стоимость и вернем кондиционер в работу.',
+    image: portfolioServiceLadder01.src,
   },
 ];
 
@@ -176,53 +179,51 @@ export const products: ProductItem[] = [
   {
     name: 'Сплит-системы',
     description:
-      'Настенные сплит-системы Centek Air и Haier для квартир, домов и офисов: от небольших комнат до просторных зон.',
+      'Настенные сплит-системы для квартир, домов и офисов: от небольших комнат до просторных зон.',
     details: 'Подберем инверторную или классическую модель по площади, шуму, энергоэффективности и бюджету.',
     image: centekSplitSystems.src,
-    href: 'https://centek-air.ru/split-sistemy',
+    href: '#contacts',
   },
   {
     name: 'Кассетные',
     description:
-      'Кассетные системы Centek Air и Haier для офисов, торговых залов, кафе и помещений с подвесным потолком.',
+      'Кассетные системы для офисов, торговых залов, кафе и помещений с подвесным потолком.',
     details: 'Рассчитаем мощность, схему отвода конденсата, трассы и удобное размещение внутреннего блока.',
     image: centekCassetteSystems.src,
-    href: 'https://centek-air.ru/kassetnye',
+    href: '#contacts',
   },
   {
     name: 'Напольно-потолочные',
     description:
       'Напольно-потолочные решения для помещений, где обычный настенный блок не подходит по планировке или потоку воздуха.',
-    details: 'Подберем оборудование Centek Air или Haier под площадь, высоту потолков и режим работы объекта.',
+    details: 'Подберем оборудование под площадь, высоту потолков, режим работы объекта и бюджет.',
     image: centekFloorCeilingSystems.src,
-    href: 'https://centek-air.ru/napolno-potolochnye',
+    href: '#contacts',
   },
   {
     name: 'Канальные',
     description:
-      'Канальные системы Centek Air и Haier для скрытого монтажа и распределения воздуха по нескольким зонам.',
+      'Канальные системы для скрытого монтажа и распределения воздуха по нескольким зонам.',
     details: 'Продумываем воздуховоды, сервисный доступ, дренаж, автоматику и аккуратную интеграцию в интерьер.',
     image: centekDuctSystems.src,
-    href: 'https://centek-air.ru/katalog/kanalnye',
+    href: '#contacts',
   },
 ];
 
 export const partnerBrands: BrandItem[] = [
   {
-    name: 'CENTEK',
-    accent: 'AIR',
-    note: 'Centek Air — практичные бытовые и полупромышленные решения для квартир, домов и коммерческих объектов.',
-    logo: centekAirLogo.src,
+    name: 'Любые бренды',
+    note: 'Установим, обслужим или отремонтируем ваш кондиционер: бытовую сплит-систему, кассетный, канальный или напольно-потолочный блок.',
   },
   {
-    name: 'Haier',
-    note: 'Haier — надежная климатическая техника с широким выбором моделей для дома, офиса и бизнеса.',
+    name: 'Подбор техники',
+    note: 'Если кондиционер еще не куплен, подберем модель под площадь, бюджет, уровень шума и условия монтажа.',
   },
 ];
 
 export const priceLead = {
   backgroundImage: portfolioOutdoorFreonCheck02.src,
-  previewImage: centekAirLogo.src,
+  previewImage: portfolioOutdoorFreonCheck02.src,
 };
 
 export const certificates = [
@@ -256,14 +257,14 @@ export const reviews: ReviewItem[] = [
   {
     name: 'Андрей Сиванов',
     city: 'Москва',
-    avatar: centekAirLogo.src,
+    avatar: portfolioIndoorUnitWall01.src,
     photos: [portfolioOutdoorInstall02.src, portfolioIndoorInstallWindow01.src],
     text: 'Мы недавно купили квартиру, сделали свежий ремонт. Очень переживали за аккуратность монтажа, но команда сработала чисто и спокойно. Никакой грязи не оставили, всё сделали профессионально.',
   },
   {
     name: 'Игорь Никифоров',
     city: 'Москва',
-    avatar: centekAirLogo.src,
+    avatar: portfolioOutdoorFreonCheck01.src,
     photos: [portfolioOutdoorFreonCheck01.src],
     text: 'Подобрали модель под мой бюджет, приехали в согласованное время и закрыли монтаж за один день. Понравилась прозрачная смета и что стоимость не изменилась в процессе.',
   },
@@ -273,7 +274,7 @@ export const consultationLead = {
   backgroundImage: portfolioServiceLadder01.src,
   masterImage: portfolioServiceHeight03.src,
   masterName: 'Монтажная команда УфаКлимат',
-  masterRole: 'Centek Air, Haier, подбор и сервис',
+  masterRole: 'Монтаж, ремонт и сервис любых брендов',
 };
 
 export const advantages: AdvantageItem[] = [
@@ -304,7 +305,7 @@ export const advantages: AdvantageItem[] = [
   },
   {
     title: 'Качественные материалы',
-    text: 'Используем проверенные материалы и оборудование Centek Air и Haier.',
+    text: 'Используем проверенные материалы и работаем с оборудованием разных производителей.',
     icon: 'wrench',
   },
 ];
@@ -317,7 +318,7 @@ export const faq: FaqItem[] = [
   { q: 'Сколько времени занимает установка?', a: 'В среднем 2–4 часа, если не требуется сложная трасса.' },
   {
     q: 'Какие гарантии вы даете?',
-    a: 'На оборудование действует гарантия производителя Centek Air или Haier, на монтажные работы — 2 года.',
+    a: 'На оборудование действует гарантия производителя, на монтажные работы — 2 года.',
   },
   {
     q: 'Делаете ли скрытый монтаж?',
@@ -363,6 +364,12 @@ export const contactsCard = {
   mapEmbedUrl:
     'https://yandex.ru/maps/?um=constructor%3A6a20313bdf362764ab5985f7fa098387242a81707e96920138cddbcd2ce99727&source=constructorLink&apiKey=2f880129-eaeb-4da8-80f4-5ccfc443420e\n',
   socialLinks: [
+    {
+      label: 'WhatsApp',
+      href: companyInfo.whatsappHref,
+      icon: 'messages-square',
+      shortLabel: 'WhatsApp',
+    },
     {
       label: 'Telegram',
       href: 'https://ttttt.me/ufaklimat02',

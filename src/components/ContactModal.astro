@@ -45,6 +45,15 @@ const { contact } = Astro.props;
         Позвонить: {contact.phoneDisplay}
       </a>
       <a
+        href={contact.whatsappHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center gap-2 rounded-xl border border-emerald-400 bg-emerald-50 px-5 py-3 text-center font-semibold text-emerald-700 transition hover:border-emerald-500 hover:bg-emerald-100"
+      >
+        <LucideIcon name="messages-square" className="h-4 w-4" />
+        Написать в WhatsApp
+      </a>
+      <a
         href={contact.telegramHref}
         target="_blank"
         rel="noopener noreferrer"

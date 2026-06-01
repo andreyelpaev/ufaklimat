@@ -66,6 +66,35 @@
 
   const isImageViewerOpen = () => imageViewer?.getAttribute('aria-hidden') === 'false';
 
+  const scrollToAnchor = (hash) => {
+    if (!hash || hash === '#') return false;
+
+    const target = document.querySelector(hash);
+    if (!target) return false;
+
+    const header = document.querySelector('header');
+    const anchorTarget = target.querySelector('h1, h2') || target;
+    const headerOffset = (header?.offsetHeight || 0) + 16;
+    const top = anchorTarget.getBoundingClientRect().top + window.scrollY - headerOffset;
+
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+    return true;
+  };
+
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    if (link.hasAttribute('data-contact-modal-trigger')) return;
+
+    link.addEventListener('click', (event) => {
+      const href = link.getAttribute('href');
+      if (!href || href === '#') return;
+
+      if (scrollToAnchor(href)) {
+        event.preventDefault();
+        history.pushState(null, '', href);
+      }
+    });
+  });
+
   contactTriggers.forEach((trigger) => {
     trigger.addEventListener('click', (event) => {
       event.preventDefault();

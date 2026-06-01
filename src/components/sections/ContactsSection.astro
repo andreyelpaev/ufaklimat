@@ -28,6 +28,24 @@ const {
   socialLinks,
   NoteContent,
 } = Astro.props;
+
+const socialClass = (label: string) => {
+  const normalized = label.toLowerCase();
+
+  if (normalized.includes('whatsapp')) {
+    return 'border-emerald-500 bg-emerald-500 text-white hover:border-emerald-600 hover:bg-emerald-600';
+  }
+
+  if (normalized.includes('telegram')) {
+    return 'border-sky-500 bg-sky-500 text-white hover:border-sky-600 hover:bg-sky-600';
+  }
+
+  if (normalized.includes('max')) {
+    return 'border-blue-600 bg-blue-600 text-white hover:border-blue-700 hover:bg-blue-700';
+  }
+
+  return 'border-slate-200 text-slate-700 hover:border-brand-400 hover:text-brand-600';
+};
 ---
 
 <section id="contacts" class="py-16">
@@ -53,7 +71,10 @@ const {
             target="_blank"
             rel="noopener noreferrer"
             href={item.href}
-            class="inline-flex items-center gap-2 rounded-xl border border-slate-200 px-4 py-2 font-semibold text-slate-700 transition hover:border-brand-400 hover:text-brand-600"
+            class:list={[
+              'inline-flex items-center gap-2 rounded-xl border px-4 py-2 font-semibold transition',
+              socialClass(item.label),
+            ]}
           >
             {item.icon && <LucideIcon name={item.icon} className="h-4 w-4" />}
             <span>{item.label}</span>

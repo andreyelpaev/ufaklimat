@@ -12,6 +12,16 @@ const { brands } = Astro.props;
 <section class="py-16" id="partners">
   <div class="site-container">
     <SectionHeading accent="Работаем с разными производителями" title="и подбираем технику под задачу" />
+    <div
+      data-reveal
+      class="mx-auto mt-8 max-w-5xl rounded-3xl border border-brand-200 bg-white px-6 py-5 text-center shadow-soft md:px-8"
+    >
+      <p class="text-xs font-semibold uppercase tracking-[0.24em] text-brand-500">Официальные дилеры</p>
+      <h3 class="mt-2 text-2xl font-semibold text-slate-900 md:text-3xl">Haier и CENTEK Air</h3>
+      <p class="mx-auto mt-3 max-w-3xl text-sm leading-6 text-slate-600 md:text-base">
+        Поставляем оригинальное оборудование, помогаем подобрать модель под объект и сохраняем официальную гарантию производителя.
+      </p>
+    </div>
     <div class="mx-auto mt-8 grid max-w-5xl gap-4 md:grid-cols-2">
       {brands.map((brand) => (
         <article

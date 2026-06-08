@@ -15,7 +15,7 @@ html {
 
 body {
   @apply bg-slate-50 text-slate-900 antialiased;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background-image:
     radial-gradient(circle at top left, rgba(41, 180, 243, 0.08), transparent 24rem),
     radial-gradient(circle at top right, rgba(14, 165, 233, 0.08), transparent 18rem),

@@ -3,6 +3,9 @@ import centekCassetteSystems from '../assets/centek-cassette-systems.png';
 import centekDuctSystems from '../assets/centek-duct-systems.png';
 import centekFloorCeilingSystems from '../assets/centek-floor-ceiling-systems.png';
 import centekSplitSystems from '../assets/centek-split-systems.jpg';
+import portfolioImg20260608130932 from '../assets/IMG_20260608_130932.png';
+import portfolioImg20260608130938 from '../assets/IMG_20260608_130938.png';
+import portfolioImg20260608130947 from '../assets/IMG_20260608_130947.png';
 import portfolioAirPurifier01 from '../assets/portfolio-air-purifier-01.jpg';
 import portfolioBracketLevel01 from '../assets/portfolio-bracket-level-01.jpg';
 import portfolioFanCleaning01 from '../assets/portfolio-fan-cleaning-01.jpg';
@@ -234,6 +237,9 @@ export const certificates = [
 ];
 
 export const portfolio = [
+  portfolioImg20260608130932.src,
+  portfolioImg20260608130938.src,
+  portfolioImg20260608130947.src,
   portfolioOutdoorInstall02.src,
   portfolioOutdoorInstall03.src,
   portfolioIndoorCoveredUnit01.src,
